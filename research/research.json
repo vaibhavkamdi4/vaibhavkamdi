@@ -5,11 +5,11 @@
     "category": "malware",
     "date": "2026-10-08",
     "tags": [
-      "PE",
       "YARA",
       "Ghidra",
-      "MITRE"
+      "MITRE",
+      "Static Analysis"
     ],
-    "path": "malware/suspicious-dll.html"
+    "path": "malware/suspicious-dll-analysis.html"
   }
 ]
