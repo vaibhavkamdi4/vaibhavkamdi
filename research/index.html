@@ -3,198 +3,615 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+
   <title>Research Portal | Vaibhav Kamdi</title>
-  <meta name="description" content="Cybersecurity research portal.">
+
+  <meta
+    name="description"
+    content="Cybersecurity research portal."
+  >
+
   <base href="/vaibhavkamdi/">
+
   <link rel="stylesheet" href="assets/css/style.css">
 
-<style id="research-cyber-rain-fix">
-/* Research page only: keep the telemetry layer isolated from the main stylesheet. */
-body > .cyber-rain {
-  position: fixed !important;
-  inset: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  overflow: hidden !important;
-  pointer-events: none !important;
-  user-select: none !important;
-  z-index: 0 !important;
-  opacity: 0.055 !important;
-}
 
-body > .cyber-rain span {
-  position: absolute !important;
-  top: -240px !important;
-  display: block !important;
-  width: max-content !important;
-  color: #48e6ff !important;
-  font-family: "SFMono-Regular","Cascadia Code",Consolas,"Liberation Mono",monospace !important;
-  font-size: 15px !important;
-  font-weight: 600 !important;
-  line-height: 1.7 !important;
-  letter-spacing: 1.5px !important;
-  writing-mode: vertical-rl !important;
-  text-orientation: mixed !important;
-  white-space: nowrap !important;
-  text-shadow: 0 0 6px rgba(72,230,255,.28) !important;
-  animation: research-cyber-fall linear infinite !important;
-}
+  <!-- =========================================================
+       RESEARCH PAGE CYBER RAIN
+       Page-local styling only.
+       Does NOT modify resume.html or global style.css.
+       ========================================================= -->
 
-body > .cyber-rain span:nth-child(3n) {
-  color: #65f29b !important;
-}
+  <style id="research-cyber-rain-fix">
 
-body > .cyber-rain span:nth-child(5n) {
-  color: #7f919b !important;
-  text-shadow: none !important;
-}
+    /* ---------------------------------------------------------
+       CYBER RAIN CONTAINER
+       --------------------------------------------------------- */
 
-body > .cyber-rain span:nth-child(1){left:3%;animation-delay:-5s;animation-duration:30s}
-body > .cyber-rain span:nth-child(2){left:8%;animation-delay:-17s;animation-duration:36s}
-body > .cyber-rain span:nth-child(3){left:14%;animation-delay:-10s;animation-duration:32s}
-body > .cyber-rain span:nth-child(4){left:20%;animation-delay:-23s;animation-duration:38s}
-body > .cyber-rain span:nth-child(5){left:27%;animation-delay:-8s;animation-duration:34s}
-body > .cyber-rain span:nth-child(6){left:33%;animation-delay:-27s;animation-duration:40s}
-body > .cyber-rain span:nth-child(7){left:39%;animation-delay:-13s;animation-duration:31s}
-body > .cyber-rain span:nth-child(8){left:45%;animation-delay:-31s;animation-duration:39s}
-body > .cyber-rain span:nth-child(9){left:51%;animation-delay:-7s;animation-duration:35s}
-body > .cyber-rain span:nth-child(10){left:57%;animation-delay:-21s;animation-duration:37s}
-body > .cyber-rain span:nth-child(11){left:63%;animation-delay:-15s;animation-duration:32s}
-body > .cyber-rain span:nth-child(12){left:69%;animation-delay:-34s;animation-duration:41s}
-body > .cyber-rain span:nth-child(13){left:75%;animation-delay:-11s;animation-duration:34s}
-body > .cyber-rain span:nth-child(14){left:81%;animation-delay:-26s;animation-duration:38s}
-body > .cyber-rain span:nth-child(15){left:87%;animation-delay:-16s;animation-duration:33s}
-body > .cyber-rain span:nth-child(16){left:92%;animation-delay:-30s;animation-duration:40s}
-body > .cyber-rain span:nth-child(17){left:96%;animation-delay:-19s;animation-duration:31s}
-body > .cyber-rain span:nth-child(18){left:11%;animation-delay:-36s;animation-duration:42s}
-body > .cyber-rain span:nth-child(19){left:48%;animation-delay:-25s;animation-duration:37s}
-body > .cyber-rain span:nth-child(20){left:72%;animation-delay:-33s;animation-duration:35s}
-body > .cyber-rain span:nth-child(21){left:24%;animation-delay:-22s;animation-duration:39s}
+    body > .cyber-rain {
+      position: fixed !important;
 
-@keyframes research-cyber-fall {
-  0% {
-    transform: translate3d(0,-240px,0);
-    opacity: 0;
-  }
-  12% {
-    opacity: .55;
-  }
-  78% {
-    opacity: .24;
-  }
-  100% {
-    transform: translate3d(0,120vh,0);
-    opacity: 0;
-  }
-}
+      inset: 0 !important;
 
-@media (max-width:700px) {
-  body > .cyber-rain {
-    opacity: .035 !important;
-  }
-  body > .cyber-rain span {
-    font-size: 8px !important;
-  }
-}
+      width: 100vw !important;
+      height: 100vh !important;
 
-@media (prefers-reduced-motion:reduce) {
-  body > .cyber-rain {
-    display:none !important;
-  }
-}
-</style>
+      overflow: hidden !important;
+
+      pointer-events: none !important;
+      user-select: none !important;
+
+      z-index: 0 !important;
+
+      /*
+       * Overall visibility.
+       * Increased from the previous 0.055
+       * so the animation is actually visible.
+       */
+      opacity: 0.12 !important;
+    }
+
+
+    /* ---------------------------------------------------------
+       FALLING CYBER TEXT
+       --------------------------------------------------------- */
+
+    body > .cyber-rain span {
+
+      position: absolute !important;
+
+      top: -240px !important;
+
+      display: block !important;
+
+      width: max-content !important;
+
+
+      /* Main cyber color */
+
+      color: #48e6ff !important;
+
+
+      /* Terminal / code font */
+
+      font-family:
+        "SFMono-Regular",
+        "Cascadia Code",
+        Consolas,
+        "Liberation Mono",
+        monospace !important;
+
+
+      /*
+       * Increased from 10px to 14px.
+       */
+      font-size: 14px !important;
+
+      font-weight: 600 !important;
+
+      line-height: 1.4 !important;
+
+      letter-spacing: 1px !important;
+
+
+      /*
+       * Vertical falling text
+       */
+
+      writing-mode: vertical-rl !important;
+
+      text-orientation: mixed !important;
+
+      white-space: nowrap !important;
+
+
+      /*
+       * Slight cyber glow
+       */
+
+      text-shadow:
+        0 0 7px rgba(72,230,255,.42),
+        0 0 14px rgba(72,230,255,.18) !important;
+
+
+      /*
+       * Individual column animation
+       */
+
+      animation:
+        research-cyber-fall
+        linear
+        infinite !important;
+    }
+
+
+    /* ---------------------------------------------------------
+       SECONDARY COLORS
+       --------------------------------------------------------- */
+
+    body > .cyber-rain span:nth-child(3n) {
+
+      color: #65f29b !important;
+    }
+
+
+    body > .cyber-rain span:nth-child(5n) {
+
+      color: #7f919b !important;
+
+      text-shadow: none !important;
+    }
+
+
+    /* ---------------------------------------------------------
+       COLUMN POSITIONS + DIFFERENT SPEEDS
+       --------------------------------------------------------- */
+
+    body > .cyber-rain span:nth-child(1) {
+      left: 3%;
+      animation-delay: -5s;
+      animation-duration: 30s;
+    }
+
+    body > .cyber-rain span:nth-child(2) {
+      left: 8%;
+      animation-delay: -17s;
+      animation-duration: 36s;
+    }
+
+    body > .cyber-rain span:nth-child(3) {
+      left: 14%;
+      animation-delay: -10s;
+      animation-duration: 32s;
+    }
+
+    body > .cyber-rain span:nth-child(4) {
+      left: 20%;
+      animation-delay: -23s;
+      animation-duration: 38s;
+    }
+
+    body > .cyber-rain span:nth-child(5) {
+      left: 27%;
+      animation-delay: -8s;
+      animation-duration: 34s;
+    }
+
+    body > .cyber-rain span:nth-child(6) {
+      left: 33%;
+      animation-delay: -27s;
+      animation-duration: 40s;
+    }
+
+    body > .cyber-rain span:nth-child(7) {
+      left: 39%;
+      animation-delay: -13s;
+      animation-duration: 31s;
+    }
+
+    body > .cyber-rain span:nth-child(8) {
+      left: 45%;
+      animation-delay: -31s;
+      animation-duration: 39s;
+    }
+
+    body > .cyber-rain span:nth-child(9) {
+      left: 51%;
+      animation-delay: -7s;
+      animation-duration: 35s;
+    }
+
+    body > .cyber-rain span:nth-child(10) {
+      left: 57%;
+      animation-delay: -21s;
+      animation-duration: 37s;
+    }
+
+    body > .cyber-rain span:nth-child(11) {
+      left: 63%;
+      animation-delay: -15s;
+      animation-duration: 32s;
+    }
+
+    body > .cyber-rain span:nth-child(12) {
+      left: 69%;
+      animation-delay: -34s;
+      animation-duration: 41s;
+    }
+
+    body > .cyber-rain span:nth-child(13) {
+      left: 75%;
+      animation-delay: -11s;
+      animation-duration: 34s;
+    }
+
+    body > .cyber-rain span:nth-child(14) {
+      left: 81%;
+      animation-delay: -26s;
+      animation-duration: 38s;
+    }
+
+    body > .cyber-rain span:nth-child(15) {
+      left: 87%;
+      animation-delay: -16s;
+      animation-duration: 33s;
+    }
+
+    body > .cyber-rain span:nth-child(16) {
+      left: 92%;
+      animation-delay: -30s;
+      animation-duration: 40s;
+    }
+
+    body > .cyber-rain span:nth-child(17) {
+      left: 96%;
+      animation-delay: -19s;
+      animation-duration: 31s;
+    }
+
+    body > .cyber-rain span:nth-child(18) {
+      left: 11%;
+      animation-delay: -36s;
+      animation-duration: 42s;
+    }
+
+    body > .cyber-rain span:nth-child(19) {
+      left: 48%;
+      animation-delay: -25s;
+      animation-duration: 37s;
+    }
+
+    body > .cyber-rain span:nth-child(20) {
+      left: 72%;
+      animation-delay: -33s;
+      animation-duration: 35s;
+    }
+
+    body > .cyber-rain span:nth-child(21) {
+      left: 24%;
+      animation-delay: -22s;
+      animation-duration: 39s;
+    }
+
+
+    /* ---------------------------------------------------------
+       FALLING ANIMATION
+       --------------------------------------------------------- */
+
+    @keyframes research-cyber-fall {
+
+      0% {
+
+        transform:
+          translate3d(0, -240px, 0);
+
+        opacity: 0;
+      }
+
+
+      12% {
+
+        opacity: .75;
+      }
+
+
+      78% {
+
+        opacity: .42;
+      }
+
+
+      100% {
+
+        transform:
+          translate3d(0, 120vh, 0);
+
+        opacity: 0;
+      }
+    }
+
+
+    /* ---------------------------------------------------------
+       MOBILE
+       --------------------------------------------------------- */
+
+    @media (max-width: 700px) {
+
+      body > .cyber-rain {
+
+        opacity: .07 !important;
+      }
+
+
+      body > .cyber-rain span {
+
+        font-size: 11px !important;
+      }
+    }
+
+
+    /* ---------------------------------------------------------
+       ACCESSIBILITY
+       --------------------------------------------------------- */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      body > .cyber-rain {
+
+        display: none !important;
+      }
+    }
+
+  </style>
 
 </head>
 
+
 <body>
 
-<div class="cyber-rain" aria-hidden="true">
-  <span>MITRE::T1059.001</span>
-  <span>IOC::ANALYSIS</span>
-  <span>YARA::MATCH</span>
-  <span>SIEM::QUERY</span>
-  <span>EDR::ALERT</span>
-  <span>SIGMA::RULE</span>
-  <span>THREAT_HUNT</span>
-  <span>GHIDRA::RE</span>
-  <span>FLOSS::STRINGS</span>
-  <span>CAPA::TTP</span>
-  <span>ATT&amp;CK::MAPPING</span>
-  <span>SPL::INVESTIGATION</span>
-  <span>DFIR::EVIDENCE</span>
-  <span>MALWARE::TRIAGE</span>
-  <span>DNS::QUERY</span>
-  <span>TCP::SESSION</span>
-  <span>C2::BEACON</span>
-  <span>MITRE::T1566.001</span>
-  <span>MITRE::T1055</span>
-  <span>PE::HEADER</span>
-  <span>SHA256::IOC</span>
-</div>
 
-<header class="topbar">
-  <a class="brand" href="index.html">
-    <span class="brand-mark">VK</span>
-    <span>VAIBHAV<span class="muted">KAMDI</span></span>
-  </a>
-  <nav>
-    <a href="index.html">Home</a>
-    <a class="active" href="research/">Research</a>
-    <a href="resume.html">Resume</a>
-  </nav>
-</header>
+  <!-- =========================================================
+       CYBER RAIN BACKGROUND
+       ========================================================= -->
 
-<main>
-  <section class="research-hero container">
-    <div class="eyebrow"><span class="dot"></span> SECURITY RESEARCH PORTAL</div>
+  <div
+    class="cyber-rain"
+    aria-hidden="true"
+  >
 
-    <h1>
-      Malware analysis.<br>
-      Threat hunts.<br>
-      Detection research.
-    </h1>
+    <span>MITRE::T1059.001</span>
 
-    <p>
-      A continuously published collection of technical investigations,
-      hunting methodologies, IOCs, ATT&amp;CK mappings and detection content.
-    </p>
-  </section>
+    <span>IOC::ANALYSIS</span>
 
-  <section class="container catalog">
-    <div class="catalog-toolbar">
-      <div class="filters">
-        <button class="filter active" data-category="all">ALL</button>
-        <button class="filter" data-category="malware">MALWARE</button>
-        <button class="filter" data-category="threat-hunting">THREAT HUNTING</button>
-        <button class="filter" data-category="detection">DETECTION</button>
-        <button class="filter" data-category="threat-intelligence">THREAT INTEL</button>
+    <span>YARA::MATCH</span>
+
+    <span>SIEM::QUERY</span>
+
+    <span>EDR::ALERT</span>
+
+    <span>SIGMA::RULE</span>
+
+    <span>THREAT_HUNT</span>
+
+    <span>GHIDRA::RE</span>
+
+    <span>FLOSS::STRINGS</span>
+
+    <span>CAPA::TTP</span>
+
+    <span>ATT&amp;CK::MAPPING</span>
+
+    <span>SPL::INVESTIGATION</span>
+
+    <span>DFIR::EVIDENCE</span>
+
+    <span>MALWARE::TRIAGE</span>
+
+    <span>DNS::QUERY</span>
+
+    <span>TCP::SESSION</span>
+
+    <span>C2::BEACON</span>
+
+    <span>MITRE::T1566.001</span>
+
+    <span>MITRE::T1055</span>
+
+    <span>PE::HEADER</span>
+
+    <span>SHA256::IOC</span>
+
+  </div>
+
+
+  <!-- =========================================================
+       NAVIGATION
+       ========================================================= -->
+
+  <header class="topbar">
+
+    <a
+      class="brand"
+      href="index.html"
+    >
+
+      <span class="brand-mark">
+        VK
+      </span>
+
+      <span>
+        VAIBHAV<span class="muted">KAMDI</span>
+      </span>
+
+    </a>
+
+
+    <nav>
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a
+        class="active"
+        href="research/"
+      >
+        Research
+      </a>
+
+      <a href="resume.html">
+        Resume
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <!-- =========================================================
+       MAIN CONTENT
+       ========================================================= -->
+
+  <main>
+
+
+    <!-- HERO -->
+
+    <section class="research-hero container">
+
+      <div class="eyebrow">
+
+        <span class="dot"></span>
+
+        SECURITY RESEARCH PORTAL
+
       </div>
 
-      <input
-        id="research-search"
-        class="search"
-        type="search"
-        placeholder="Search research, tags, IOCs..."
-        autocomplete="off"
-        aria-label="Search research"
+
+      <h1>
+
+        Malware analysis.<br>
+
+        Threat hunts.<br>
+
+        Detection research.
+
+      </h1>
+
+
+      <p>
+
+        A continuously published collection of technical investigations,
+        hunting methodologies, IOCs, ATT&amp;CK mappings and detection content.
+
+      </p>
+
+    </section>
+
+
+    <!-- =======================================================
+         RESEARCH CATALOG
+         ======================================================= -->
+
+    <section class="container catalog">
+
+
+      <!-- TOOLBAR -->
+
+      <div class="catalog-toolbar">
+
+
+        <!-- CATEGORY FILTERS -->
+
+        <div class="filters">
+
+          <button
+            class="filter active"
+            data-category="all"
+          >
+            ALL
+          </button>
+
+
+          <button
+            class="filter"
+            data-category="malware"
+          >
+            MALWARE
+          </button>
+
+
+          <button
+            class="filter"
+            data-category="threat-hunting"
+          >
+            THREAT HUNTING
+          </button>
+
+
+          <button
+            class="filter"
+            data-category="detection"
+          >
+            DETECTION
+          </button>
+
+
+          <button
+            class="filter"
+            data-category="threat-intelligence"
+          >
+            THREAT INTEL
+          </button>
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <input
+          id="research-search"
+          class="search"
+          type="search"
+          placeholder="Search research, tags, IOCs..."
+          autocomplete="off"
+          aria-label="Search research"
+        >
+
+      </div>
+
+
+      <!-- STATUS -->
+
+      <div
+        id="catalog-status"
+        class="catalog-status"
       >
+        Initializing research catalog…
+      </div>
+
+
+      <!-- RESEARCH CARDS -->
+
+      <div
+        id="research-grid"
+        class="research-grid"
+      ></div>
+
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+
+  <footer>
+
+    <div class="container footer-inner">
+
+      <span>
+        © 2026 Vaibhav Kamdi
+      </span>
+
+
+      <span>
+        Public research only · No client-confidential data
+      </span>
+
     </div>
 
-    <div id="catalog-status" class="catalog-status">
-      Initializing research catalog…
-    </div>
+  </footer>
 
-    <div id="research-grid" class="research-grid"></div>
-  </section>
-</main>
 
-<footer>
-  <div class="container footer-inner">
-    <span>© 2026 Vaibhav Kamdi</span>
-    <span>Public research only · No client-confidential data</span>
-  </div>
-</footer>
+  <!-- =========================================================
+       APPLICATION JS
+       ========================================================= -->
 
-<script src="assets/js/app.js"></script>
+  <script src="assets/js/app.js"></script>
+
 </body>
+
 </html>
