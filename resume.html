@@ -1,31 +1,42 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Resume | Vaibhav Kamdi</title>
-  <base href="/vaibhavkamdi/">
-  <link rel="stylesheet" href="assets/css/style.css">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume | Vaibhav Kamdi</title><link rel="stylesheet" href="assets/style.css">
 </head>
-<body>
-<header class="topbar">
-  <a class="brand" href="index.html"><span class="brand-mark">VK</span><span>VAIBHAV<span class="muted">KAMDI</span></span></a>
-  <nav><a href="index.html">Home</a><a href="research/">Research</a><a class="active" href="resume.html">Resume</a></nav>
-</header>
-<main>
-<section class="container resume">
-  <div class="eyebrow">CYBERSECURITY PROFESSIONAL</div>
-  <h1>Vaibhav Kamdi</h1>
-  <p class="lead">Threat Hunter · Incident Response · Threat Intelligence · SOC L3 · Malware Analysis</p>
-  <div class="resume-actions"><a class="btn primary" href="resume.pdf">Download Resume PDF</a><a class="btn ghost" href="research/">View Research</a></div>
-  <div class="resume-grid">
-    <div class="panel"><h3>Core Skills</h3><p>Threat Hunting, Incident Response, Threat Intelligence, SIEM, EDR, Malware Analysis, YARA, Sigma, MITRE ATT&amp;CK, Detection Engineering.</p></div>
-    <div class="panel"><h3>Platforms</h3><p>LogRhythm, Wazuh, Securonix, Log360, AlienVault, Cortex XDR, Sophos EDR, Recorded Future, MISP, TheHive, IRIS.</p></div>
-    <div class="panel"><h3>Analysis</h3><p>Ghidra, REMnux, FLOSS, capa, PE analysis, static/dynamic analysis, reverse engineering, IOC extraction and ATT&amp;CK mapping.</p></div>
-    <div class="panel"><h3>Automation</h3><p>Python, FastAPI, Streamlit, Docker, Sigma/YARA generation, investigation workflows and agentic SOC automation.</p></div>
+<body class="resume-page">
+<header class="nav"><a class="brand" href="index.html"><span>VK</span> / SECURITY</a><nav><a href="index.html">← Portfolio</a></nav></header>
+<main class="resume-wrap">
+  <div class="resume-head">
+    <div><p class="eyebrow">CYBERSECURITY PROFESSIONAL</p><h1>Vaibhav Kamdi</h1><p class="resume-role">Senior Threat Hunter · Incident Response · Detection Engineering</p></div>
+    <div class="resume-buttons"><button onclick="window.print()">Print / Save PDF</button><a class="btn ghost" href="index.html">Portfolio</a></div>
   </div>
-</section>
+  <div class="resume-grid">
+    <section>
+      <h2>Professional Summary</h2>
+      <p>Cybersecurity professional with 6.5+ years of experience across security operations, threat hunting, incident response, detection engineering, threat intelligence and malware analysis. Hands-on experience with SIEM/EDR investigations, MITRE ATT&CK mapping, Sigma/YARA detection, security automation and security research.</p>
+      <h2>Experience</h2>
+      <div class="r-item"><h3>Senior Threat Hunter</h3><p class="muted">Enterprise BFSI Security Environment</p><ul><li>Performed hypothesis-driven threat hunting across SIEM, EDR and threat-intelligence telemetry.</li><li>Investigated suspicious activity, IOCs and attacker behaviors and mapped findings to MITRE ATT&CK.</li><li>Developed and tuned detection logic using SPL/Sigma-oriented workflows.</li><li>Supported incident investigation and detection optimization.</li></ul></div>
+      <div class="r-item"><h3>Senior Security Analyst</h3><p class="muted">MSSP / Security Operations</p><ul><li>Performed security monitoring, triage, investigation and escalation.</li><li>Worked with SIEM platforms and detection workflows in operational SOC environments.</li><li>Contributed to reduction of detection noise and false positives.</li></ul></div>
+      <h2>Selected Projects</h2>
+      <div class="r-item"><h3>ThreatHunterAI</h3><p>Agentic AI concept for SOC investigation and threat hunting automation with IOC extraction, TTP mapping, SPL/Sigma generation and reporting.</p></div>
+      <div class="r-item"><h3>Malware Analysis Workbench</h3><p>Static/dynamic malware analysis workflow integrating PE triage, YARA, Ghidra, capa, behavioral analysis and ATT&CK mapping.</p></div>
+      <div class="r-item"><h3>EVTX → MITRE Mapper</h3><p>Python-based Windows event analysis and ATT&CK mapping workflow.</p></div>
+    </section>
+    <aside>
+      <h2>Technical Skills</h2>
+      <p><b>SIEM</b><br>AlienVault · LogRhythm · Wazuh · Log360 · Securonix</p>
+      <p><b>EDR</b><br>Cortex XDR · Sophos EDR</p>
+      <p><b>Detection</b><br>Sigma · YARA · SPL · SOC Prime</p>
+      <p><b>Threat Intel</b><br>Recorded Future · MISP</p>
+      <p><b>DFIR / Network</b><br>TheHive · Cortex · IRIS · Zeek · Suricata · Snort</p>
+      <p><b>Malware</b><br>Ghidra · capa · FLOSS · PE tools · OllyDbg · REMnux</p>
+      <p><b>Development</b><br>Python · FastAPI · Flask · Docker</p>
+      <h2>Certifications</h2>
+      <p>ECIH — EC-Council</p><p>LRPA — LogRhythm</p><p>LRSA — LogRhythm</p><p>Security+ — Great Learning Academy</p>
+      <h2>Education</h2><p><b>PG Diploma</b><br>IT Infrastructure System & Security · C-DAC</p><p><b>B.E.</b><br>Civil Engineering · 2018</p>
+    </aside>
+  </div>
 </main>
-<footer><div class="container footer-inner"><span>© 2026 Vaibhav Kamdi</span><span>Public research only</span></div></footer>
-</body>
-</html>
+<script src="assets/app.js"></script>
+</body></html>
