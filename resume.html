@@ -1,42 +1,491 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Resume | Vaibhav Kamdi</title><link rel="stylesheet" href="assets/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resume | Vaibhav Kamdi</title>
+
+    <base href="/vaibhavkamdi/">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        .resume-page {
+            padding: 70px 0 100px;
+        }
+
+        .resume-header {
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 35px;
+            margin-bottom: 45px;
+        }
+
+        .resume-header h1 {
+            font-size: 64px;
+            margin-bottom: 10px;
+        }
+
+        .resume-role {
+            color: var(--muted);
+            font-size: 18px;
+        }
+
+        .resume-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .resume-section {
+            margin-bottom: 48px;
+        }
+
+        .resume-section-title {
+            color: var(--cyan);
+            font-family: ui-monospace, monospace;
+            font-size: 12px;
+            letter-spacing: .15em;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 10px;
+        }
+
+        .resume-section h2 {
+            font-size: 23px;
+            margin: 0 0 4px;
+        }
+
+        .resume-company {
+            color: var(--cyan);
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .resume-section p,
+        .resume-section li {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .resume-section ul {
+            padding-left: 20px;
+        }
+
+        .resume-section li {
+            margin-bottom: 7px;
+        }
+
+        .resume-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .resume-skill {
+            border: 1px solid var(--line);
+            background: var(--panel);
+            padding: 20px;
+        }
+
+        .resume-skill h3 {
+            color: var(--cyan);
+            font-size: 14px;
+            margin-top: 0;
+        }
+
+        .resume-skill p {
+            margin-bottom: 0;
+        }
+
+        .resume-two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        @media print {
+
+            body {
+                background: white !important;
+                color: black !important;
+            }
+
+            .topbar,
+            footer,
+            .resume-actions {
+                display: none !important;
+            }
+
+            .container {
+                width: 100%;
+            }
+
+            .resume-page {
+                padding: 20px;
+            }
+
+            .resume-header {
+                border-bottom: 1px solid #ccc;
+            }
+
+            .resume-section-title,
+            .resume-company,
+            .resume-skill h3 {
+                color: #111 !important;
+            }
+
+            .resume-section p,
+            .resume-section li,
+            .resume-role {
+                color: #333 !important;
+            }
+
+            .resume-skill {
+                background: white !important;
+                border: 1px solid #ccc;
+            }
+
+            a {
+                color: black !important;
+            }
+        }
+
+        @media(max-width:700px) {
+
+            .resume-header h1 {
+                font-size: 46px;
+            }
+
+            .resume-grid,
+            .resume-two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-<body class="resume-page">
-<header class="nav"><a class="brand" href="index.html"><span>VK</span> / SECURITY</a><nav><a href="index.html">← Portfolio</a></nav></header>
-<main class="resume-wrap">
-  <div class="resume-head">
-    <div><p class="eyebrow">CYBERSECURITY PROFESSIONAL</p><h1>Vaibhav Kamdi</h1><p class="resume-role">Senior Threat Hunter · Incident Response · Detection Engineering</p></div>
-    <div class="resume-buttons"><button onclick="window.print()">Print / Save PDF</button><a class="btn ghost" href="index.html">Portfolio</a></div>
-  </div>
-  <div class="resume-grid">
-    <section>
-      <h2>Professional Summary</h2>
-      <p>Cybersecurity professional with 6.5+ years of experience across security operations, threat hunting, incident response, detection engineering, threat intelligence and malware analysis. Hands-on experience with SIEM/EDR investigations, MITRE ATT&CK mapping, Sigma/YARA detection, security automation and security research.</p>
-      <h2>Experience</h2>
-      <div class="r-item"><h3>Senior Threat Hunter</h3><p class="muted">Enterprise BFSI Security Environment</p><ul><li>Performed hypothesis-driven threat hunting across SIEM, EDR and threat-intelligence telemetry.</li><li>Investigated suspicious activity, IOCs and attacker behaviors and mapped findings to MITRE ATT&CK.</li><li>Developed and tuned detection logic using SPL/Sigma-oriented workflows.</li><li>Supported incident investigation and detection optimization.</li></ul></div>
-      <div class="r-item"><h3>Senior Security Analyst</h3><p class="muted">MSSP / Security Operations</p><ul><li>Performed security monitoring, triage, investigation and escalation.</li><li>Worked with SIEM platforms and detection workflows in operational SOC environments.</li><li>Contributed to reduction of detection noise and false positives.</li></ul></div>
-      <h2>Selected Projects</h2>
-      <div class="r-item"><h3>ThreatHunterAI</h3><p>Agentic AI concept for SOC investigation and threat hunting automation with IOC extraction, TTP mapping, SPL/Sigma generation and reporting.</p></div>
-      <div class="r-item"><h3>Malware Analysis Workbench</h3><p>Static/dynamic malware analysis workflow integrating PE triage, YARA, Ghidra, capa, behavioral analysis and ATT&CK mapping.</p></div>
-      <div class="r-item"><h3>EVTX → MITRE Mapper</h3><p>Python-based Windows event analysis and ATT&CK mapping workflow.</p></div>
+
+<body>
+
+<header class="topbar">
+
+    <a class="brand" href="index.html">
+        <span class="brand-mark">VK</span>
+
+        <span>
+            VAIBHAV<span class="muted">KAMDI</span>
+        </span>
+    </a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="research/">Research</a>
+        <a class="active" href="resume.html">Resume</a>
+    </nav>
+
+</header>
+
+
+<main class="container resume-page">
+
+    <!-- HEADER -->
+
+    <section class="resume-header">
+
+        <div class="eyebrow">
+            CYBERSECURITY PROFESSIONAL
+        </div>
+
+        <h1>Vaibhav Kamdi</h1>
+
+        <div class="resume-role">
+            Senior Threat Hunter · Incident Response · Detection Engineering
+        </div>
+
+        <div class="resume-actions">
+
+            <button
+                class="btn primary"
+                onclick="window.print()">
+                Print / Save PDF
+            </button>
+
+            <a
+                class="btn ghost"
+                href="research/">
+                View Research
+            </a>
+
+        </div>
+
     </section>
-    <aside>
-      <h2>Technical Skills</h2>
-      <p><b>SIEM</b><br>AlienVault · LogRhythm · Wazuh · Log360 · Securonix</p>
-      <p><b>EDR</b><br>Cortex XDR · Sophos EDR</p>
-      <p><b>Detection</b><br>Sigma · YARA · SPL · SOC Prime</p>
-      <p><b>Threat Intel</b><br>Recorded Future · MISP</p>
-      <p><b>DFIR / Network</b><br>TheHive · Cortex · IRIS · Zeek · Suricata · Snort</p>
-      <p><b>Malware</b><br>Ghidra · capa · FLOSS · PE tools · OllyDbg · REMnux</p>
-      <p><b>Development</b><br>Python · FastAPI · Flask · Docker</p>
-      <h2>Certifications</h2>
-      <p>ECIH — EC-Council</p><p>LRPA — LogRhythm</p><p>LRSA — LogRhythm</p><p>Security+ — Great Learning Academy</p>
-      <h2>Education</h2><p><b>PG Diploma</b><br>IT Infrastructure System & Security · C-DAC</p><p><b>B.E.</b><br>Civil Engineering · 2018</p>
-    </aside>
-  </div>
+
+
+    <!-- SUMMARY -->
+
+    <section class="resume-section">
+
+        <div class="resume-section-title">
+            PROFESSIONAL SUMMARY
+        </div>
+
+        <p>
+            Cybersecurity professional with 6.5+ years of experience
+            across security operations, threat hunting, incident response,
+            detection engineering, threat intelligence and malware analysis.
+            Hands-on experience with SIEM/EDR investigations, MITRE ATT&CK
+            mapping, Sigma/YARA detection, security automation and security
+            research.
+        </p>
+
+    </section>
+
+
+    <!-- EXPERIENCE -->
+
+    <section class="resume-section">
+
+        <div class="resume-section-title">
+            PROFESSIONAL EXPERIENCE
+        </div>
+
+
+        <h2>Senior Threat Hunter</h2>
+
+        <div class="resume-company">
+            Enterprise BFSI Security Environment
+        </div>
+
+        <ul>
+
+            <li>
+                Performed hypothesis-driven threat hunting across
+                SIEM, EDR and threat-intelligence telemetry.
+            </li>
+
+            <li>
+                Investigated suspicious activity, IOCs and attacker
+                behaviors and mapped findings to MITRE ATT&CK.
+            </li>
+
+            <li>
+                Developed and tuned detection logic using SPL,
+                Sigma and threat-hunting workflows.
+            </li>
+
+            <li>
+                Supported incident investigation, threat intelligence
+                enrichment and detection optimization.
+            </li>
+
+        </ul>
+
+
+        <h2>Senior Security Analyst</h2>
+
+        <div class="resume-company">
+            MSSP / Security Operations
+        </div>
+
+        <ul>
+
+            <li>
+                Performed security monitoring, triage, investigation
+                and escalation.
+            </li>
+
+            <li>
+                Worked with SIEM platforms and detection workflows
+                in operational SOC environments.
+            </li>
+
+            <li>
+                Contributed to reduction of detection noise and
+                false positives.
+            </li>
+
+        </ul>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+
+    <section class="resume-section">
+
+        <div class="resume-section-title">
+            SELECTED SECURITY PROJECTS
+        </div>
+
+
+        <h2>ThreatHunterAI</h2>
+
+        <p>
+            Agentic AI concept for SOC investigation and threat-hunting
+            automation with IOC extraction, TTP mapping, SPL/Sigma
+            generation and automated reporting.
+        </p>
+
+
+        <h2>Malware Analysis Workbench</h2>
+
+        <p>
+            Static and dynamic malware-analysis workflow integrating
+            PE triage, YARA, Ghidra, capa, behavioral analysis and
+            MITRE ATT&CK mapping.
+        </p>
+
+
+        <h2>EVTX → MITRE Mapper</h2>
+
+        <p>
+            Python-based Windows event analysis and MITRE ATT&CK
+            mapping workflow for security investigations.
+        </p>
+
+    </section>
+
+
+    <!-- SKILLS -->
+
+    <section class="resume-section">
+
+        <div class="resume-section-title">
+            TECHNICAL SKILLS
+        </div>
+
+
+        <div class="resume-grid">
+
+            <div class="resume-skill">
+                <h3>SIEM</h3>
+                <p>
+                    AlienVault · LogRhythm · Wazuh · Log360 · Securonix
+                </p>
+            </div>
+
+
+            <div class="resume-skill">
+                <h3>EDR</h3>
+                <p>
+                    Cortex XDR · Sophos EDR
+                </p>
+            </div>
+
+
+            <div class="resume-skill">
+                <h3>Detection Engineering</h3>
+                <p>
+                    Sigma · YARA · SPL · SOC Prime
+                </p>
+            </div>
+
+
+            <div class="resume-skill">
+                <h3>Threat Intelligence</h3>
+                <p>
+                    Recorded Future · MISP
+                </p>
+            </div>
+
+
+            <div class="resume-skill">
+                <h3>DFIR / Network</h3>
+                <p>
+                    TheHive · Cortex · IRIS · Zeek · Suricata · Snort
+                </p>
+            </div>
+
+
+            <div class="resume-skill">
+                <h3>Malware Analysis</h3>
+                <p>
+                    Ghidra · capa · FLOSS · PE Tools · OllyDbg · REMnux
+                </p>
+            </div>
+
+
+            <div class="resume-skill">
+                <h3>Development</h3>
+                <p>
+                    Python · FastAPI · Flask · Docker
+                </p>
+            </div>
+
+
+            <div class="resume-skill">
+                <h3>Frameworks</h3>
+                <p>
+                    MITRE ATT&CK · NIST · MITRE CAR · MITRE Engage
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CERTIFICATIONS + EDUCATION -->
+
+    <div class="resume-two-column">
+
+        <section class="resume-section">
+
+            <div class="resume-section-title">
+                CERTIFICATIONS
+            </div>
+
+            <p><strong>ECIH</strong> — EC-Council</p>
+
+            <p><strong>LRPA</strong> — LogRhythm</p>
+
+            <p><strong>LRSA</strong> — LogRhythm</p>
+
+            <p><strong>Security+</strong> — Great Learning Academy</p>
+
+        </section>
+
+
+        <section class="resume-section">
+
+            <div class="resume-section-title">
+                EDUCATION
+            </div>
+
+            <p>
+                <strong>PG Diploma</strong><br>
+                IT Infrastructure System & Security<br>
+                C-DAC
+            </p>
+
+            <p>
+                <strong>B.E.</strong><br>
+                Civil Engineering · 2018
+            </p>
+
+        </section>
+
+    </div>
+
 </main>
-<script src="assets/app.js"></script>
-</body></html>
+
+
+<footer>
+
+    <div class="container footer-inner">
+
+        <span>
+            © 2026 Vaibhav Kamdi
+        </span>
+
+        <span>
+            Public research only
+        </span>
+
+    </div>
+
+</footer>
+
+</body>
+</html>
