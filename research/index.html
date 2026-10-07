@@ -1,19 +1,42 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Vaibhav Kamdi security research portal — malware analysis, threat hunting, detection engineering and threat intelligence.">
-<title>Research Portal | Vaibhav Kamdi</title>
-<link rel="stylesheet" href="../assets/css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Research Portal | Vaibhav Kamdi</title>
+  <meta name="description" content="Cybersecurity research portal.">
+  <base href="/vaibhavkamdi/">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-<header class="nav"><a class="brand" href="../index.html"><span class="brand-mark">VK</span>/ RESEARCH</a><button class="menu">☰</button><nav class="nav-links"><a href="../index.html">PORTFOLIO</a><a href="../resume.html">RESUME</a></nav></header>
-<main class="container">
-<section class="research-hero"><p class="eyebrow">SECURITY RESEARCH PORTAL</p><h1>Malware analysis.<br><em>Threat hunts.</em><br>Detection research.</h1><p class="hero-copy lead">A continuously published collection of public, sanitized security research. Upload a new HTML report into the repository and GitHub Actions automatically adds it here.</p>
-<div class="toolbar"><button class="filter active" data-filter="all">ALL</button><button class="filter" data-filter="malware">MALWARE</button><button class="filter" data-filter="threat-hunting">THREAT HUNTING</button><button class="filter" data-filter="detection">DETECTION</button><button class="filter" data-filter="threat-intelligence">THREAT INTEL</button></div>
-</section>
-<section class="research-grid" id="research-grid"><div class="empty">Loading research catalog…</div></section>
+<header class="topbar">
+  <a class="brand" href="index.html"><span class="brand-mark">VK</span><span>VAIBHAV<span class="muted">KAMDI</span></span></a>
+  <nav><a href="index.html">Home</a><a class="active" href="research/">Research</a><a href="resume.html">Resume</a></nav>
+</header>
+
+<main>
+  <section class="research-hero container">
+    <div class="eyebrow"><span class="dot"></span> SECURITY RESEARCH PORTAL</div>
+    <h1>Malware analysis.<br>Threat hunts.<br>Detection research.</h1>
+    <p>A continuously published collection of technical investigations, hunting methodologies, IOCs, ATT&amp;CK mappings and detection content.</p>
+  </section>
+
+  <section class="container catalog">
+    <div class="catalog-toolbar">
+      <div class="filters">
+        <button class="filter active" data-category="all">ALL</button>
+        <button class="filter" data-category="malware">MALWARE</button>
+        <button class="filter" data-category="threat-hunting">THREAT HUNTING</button>
+        <button class="filter" data-category="detection">DETECTION</button>
+        <button class="filter" data-category="threat-intelligence">THREAT INTEL</button>
+      </div>
+      <input id="research-search" class="search" type="search" placeholder="Search research, tags, IOCs...">
+    </div>
+    <div id="catalog-status" class="catalog-status">Initializing research catalog…</div>
+    <div id="research-grid" class="research-grid"></div>
+  </section>
 </main>
-<footer><span>© <span id="year"></span> Vaibhav Kamdi</span><span>Public research only · No client-confidential data</span></footer>
-<script src="../assets/js/app.js"></script>
-</body></html>
+<footer><div class="container footer-inner"><span>© 2026 Vaibhav Kamdi</span><span>Public research only · No client-confidential data</span></div></footer>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

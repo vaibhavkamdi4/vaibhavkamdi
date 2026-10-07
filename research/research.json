@@ -1,15 +1,10 @@
 [
   {
-    "title": "Suspicious DLL Analysis",
-    "description": "Example static and dynamic analysis of a suspicious DLL.",
+    "title": "Suspicious DLL Analysis — Template Report",
     "category": "malware",
     "date": "2026-10-08",
-    "tags": [
-      "YARA",
-      "Ghidra",
-      "MITRE",
-      "Static Analysis"
-    ],
-    "path": "malware/suspicious-dll-analysis.html"
+    "tags": ["PE", "DLL", "Static Analysis", "MITRE ATT&CK"],
+    "description": "Example research entry. Replace or remove this sample report when publishing your own analysis.",
+    "url": "research/malware/suspicious-dll-analysis.html"
   }
 ]
