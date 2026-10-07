@@ -1,61 +1,31 @@
-# Vaibhav Kamdi — Security Research Portfolio
+# Vaibhav Kamdi — Cybersecurity Research Portfolio
 
-## Architecture
+GitHub Pages project site for cybersecurity portfolio, malware analysis, threat hunting, threat intelligence and detection research.
 
-The site is a static GitHub Pages portfolio with an automatic research catalog.
+## Live site
 
-```text
-index.html
-resume.html
-resume.pdf
+`https://vaibhavkamdi4.github.io/vaibhavkamdi/`
 
-research/
-├── index.html
-├── research.json                 # GENERATED — do not edit manually
-│
-├── malware/
-│   ├── report-001.html
-│   └── report-002.html
-│
-├── threat-hunting/
-│   └── hunt-001.html
-│
-├── detection/
-│   └── sigma-001.html
-│
-└── threat-intelligence/
-    └── campaign-001.html
-```
+## Publishing a new research report
 
-## Publishing a new report
+Put a complete HTML report into one of:
 
-1. Copy `research/REPORT-TEMPLATE.html`.
-2. Put it into the appropriate folder.
-3. Change the metadata in `<head>`:
+- `research/malware/`
+- `research/threat-hunting/`
+- `research/detection/`
+- `research/threat-intelligence/`
+
+Add these metadata tags inside `<head>`:
 
 ```html
-<meta name="research-title" content="My Malware Analysis">
-<meta name="category" content="malware">
-<meta name="date" content="2026-10-08">
-<meta name="tags" content="YARA,Ghidra,MITRE">
-<meta name="description" content="Short public description.">
+<meta name="research-title" content="My Report Title">
+<meta name="research-date" content="2026-10-08">
+<meta name="research-tags" content="Malware, YARA, ATT&CK">
+<meta name="research-description" content="Short public description">
 ```
 
-4. Write your complete HTML research report.
-5. Commit/push to GitHub.
-6. GitHub Actions scans `research/**/*.html`.
-7. It automatically regenerates `research/research.json`.
-8. `/research/` and the homepage automatically display the new report.
+The GitHub Action scans the research folders and regenerates `research/research.json`.
 
-### Category folders
+## Important
 
-- `malware`
-- `threat-hunting`
-- `detection`
-- `threat-intelligence`
-
-### Important
-
-`research/research.json` is generated automatically. Do not manually maintain it.
-
-Never publish customer-confidential information, credentials, private telemetry, secrets, or sensitive internal IOCs.
+This is a public website. Never publish credentials, private client data, secrets, internal IPs, confidential reports or sensitive evidence.
