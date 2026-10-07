@@ -1,345 +1,165 @@
+```html
 <!doctype html>
 <html lang="en">
 <head>
+
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  >
 
   <title>Research Portal | Vaibhav Kamdi</title>
 
   <meta
     name="description"
-    content="Cybersecurity research portal."
+    content="Cybersecurity research portal covering malware analysis, threat hunting, detection engineering and threat intelligence."
   >
 
   <base href="/vaibhavkamdi/">
 
+  <!-- Existing global site styling -->
   <link rel="stylesheet" href="assets/css/style.css">
 
 
   <!-- =========================================================
-       RESEARCH PAGE CYBER RAIN
-       Page-local styling only.
-       Does NOT modify resume.html or global style.css.
+       RESEARCH PAGE ONLY
+       Canvas cyber-rain + catalog styling
        ========================================================= -->
 
-  <style id="research-cyber-rain-fix">
+  <style>
 
-    /* ---------------------------------------------------------
-       CYBER RAIN CONTAINER
-       --------------------------------------------------------- */
+    /* =========================================================
+       CANVAS BACKGROUND
+       ========================================================= */
 
-    body > .cyber-rain {
-      position: fixed !important;
+    #cyber-rain-canvas {
 
-      inset: 0 !important;
+      position: fixed;
 
-      width: 100vw !important;
-      height: 100vh !important;
+      inset: 0;
 
-      overflow: hidden !important;
+      width: 100vw;
+      height: 100vh;
 
-      pointer-events: none !important;
-      user-select: none !important;
+      pointer-events: none;
 
-      z-index: 0 !important;
+      z-index: 0;
 
-      /*
-       * Overall visibility.
-       * Increased from the previous 0.055
-       * so the animation is actually visible.
-       */
-      opacity: 0.12 !important;
+      opacity: 0.30;
+
     }
 
 
-    /* ---------------------------------------------------------
-       FALLING CYBER TEXT
-       --------------------------------------------------------- */
+    /*
+     * Keep the actual website above the canvas.
+     */
 
-    body > .cyber-rain span {
+    .topbar,
+    main,
+    footer {
 
-      position: absolute !important;
+      position: relative;
 
-      top: -240px !important;
+      z-index: 2;
 
-      display: block !important;
-
-      width: max-content !important;
-
-
-      /* Main cyber color */
-
-      color: #48e6ff !important;
-
-
-      /* Terminal / code font */
-
-      font-family:
-        "SFMono-Regular",
-        "Cascadia Code",
-        Consolas,
-        "Liberation Mono",
-        monospace !important;
-
-
-      /*
-       * Increased from 10px to 14px.
-       */
-      font-size: 14px !important;
-
-      font-weight: 600 !important;
-
-      line-height: 1.4 !important;
-
-      letter-spacing: 1px !important;
-
-
-      /*
-       * Vertical falling text
-       */
-
-      writing-mode: vertical-rl !important;
-
-      text-orientation: mixed !important;
-
-      white-space: nowrap !important;
-
-
-      /*
-       * Slight cyber glow
-       */
-
-      text-shadow:
-        0 0 7px rgba(72,230,255,.42),
-        0 0 14px rgba(72,230,255,.18) !important;
-
-
-      /*
-       * Individual column animation
-       */
-
-      animation:
-        research-cyber-fall
-        linear
-        infinite !important;
     }
 
 
-    /* ---------------------------------------------------------
-       SECONDARY COLORS
-       --------------------------------------------------------- */
+    /*
+     * Make sure cards / controls remain clickable.
+     */
 
-    body > .cyber-rain span:nth-child(3n) {
+    .topbar *,
+    main *,
+    footer * {
 
-      color: #65f29b !important;
+      position: relative;
+
     }
 
 
-    body > .cyber-rain span:nth-child(5n) {
+    /* =========================================================
+       RESEARCH PAGE CONTENT
+       ========================================================= */
 
-      color: #7f919b !important;
+    .research-hero,
+    .catalog {
 
-      text-shadow: none !important;
+      position: relative;
+
+      z-index: 2;
+
     }
 
 
-    /* ---------------------------------------------------------
-       COLUMN POSITIONS + DIFFERENT SPEEDS
-       --------------------------------------------------------- */
+    /* =========================================================
+       OPTIONAL DARK GLASS LAYER
+       ========================================================= */
 
-    body > .cyber-rain span:nth-child(1) {
-      left: 3%;
-      animation-delay: -5s;
-      animation-duration: 30s;
-    }
+    .research-hero::before {
 
-    body > .cyber-rain span:nth-child(2) {
-      left: 8%;
-      animation-delay: -17s;
-      animation-duration: 36s;
-    }
+      content: "";
 
-    body > .cyber-rain span:nth-child(3) {
-      left: 14%;
-      animation-delay: -10s;
-      animation-duration: 32s;
-    }
+      position: absolute;
 
-    body > .cyber-rain span:nth-child(4) {
-      left: 20%;
-      animation-delay: -23s;
-      animation-duration: 38s;
-    }
+      inset: -40px -30px;
 
-    body > .cyber-rain span:nth-child(5) {
-      left: 27%;
-      animation-delay: -8s;
-      animation-duration: 34s;
-    }
+      z-index: -1;
 
-    body > .cyber-rain span:nth-child(6) {
-      left: 33%;
-      animation-delay: -27s;
-      animation-duration: 40s;
-    }
+      pointer-events: none;
 
-    body > .cyber-rain span:nth-child(7) {
-      left: 39%;
-      animation-delay: -13s;
-      animation-duration: 31s;
-    }
+      background:
+        radial-gradient(
+          circle at 50% 35%,
+          rgba(8, 25, 35, 0.30),
+          transparent 65%
+        );
 
-    body > .cyber-rain span:nth-child(8) {
-      left: 45%;
-      animation-delay: -31s;
-      animation-duration: 39s;
-    }
-
-    body > .cyber-rain span:nth-child(9) {
-      left: 51%;
-      animation-delay: -7s;
-      animation-duration: 35s;
-    }
-
-    body > .cyber-rain span:nth-child(10) {
-      left: 57%;
-      animation-delay: -21s;
-      animation-duration: 37s;
-    }
-
-    body > .cyber-rain span:nth-child(11) {
-      left: 63%;
-      animation-delay: -15s;
-      animation-duration: 32s;
-    }
-
-    body > .cyber-rain span:nth-child(12) {
-      left: 69%;
-      animation-delay: -34s;
-      animation-duration: 41s;
-    }
-
-    body > .cyber-rain span:nth-child(13) {
-      left: 75%;
-      animation-delay: -11s;
-      animation-duration: 34s;
-    }
-
-    body > .cyber-rain span:nth-child(14) {
-      left: 81%;
-      animation-delay: -26s;
-      animation-duration: 38s;
-    }
-
-    body > .cyber-rain span:nth-child(15) {
-      left: 87%;
-      animation-delay: -16s;
-      animation-duration: 33s;
-    }
-
-    body > .cyber-rain span:nth-child(16) {
-      left: 92%;
-      animation-delay: -30s;
-      animation-duration: 40s;
-    }
-
-    body > .cyber-rain span:nth-child(17) {
-      left: 96%;
-      animation-delay: -19s;
-      animation-duration: 31s;
-    }
-
-    body > .cyber-rain span:nth-child(18) {
-      left: 11%;
-      animation-delay: -36s;
-      animation-duration: 42s;
-    }
-
-    body > .cyber-rain span:nth-child(19) {
-      left: 48%;
-      animation-delay: -25s;
-      animation-duration: 37s;
-    }
-
-    body > .cyber-rain span:nth-child(20) {
-      left: 72%;
-      animation-delay: -33s;
-      animation-duration: 35s;
-    }
-
-    body > .cyber-rain span:nth-child(21) {
-      left: 24%;
-      animation-delay: -22s;
-      animation-duration: 39s;
     }
 
 
-    /* ---------------------------------------------------------
-       FALLING ANIMATION
-       --------------------------------------------------------- */
+    /* =========================================================
+       RESEARCH SEARCH
+       ========================================================= */
 
-    @keyframes research-cyber-fall {
+    .search {
 
-      0% {
+      position: relative;
 
-        transform:
-          translate3d(0, -240px, 0);
+      z-index: 5;
 
-        opacity: 0;
-      }
-
-
-      12% {
-
-        opacity: .75;
-      }
-
-
-      78% {
-
-        opacity: .42;
-      }
-
-
-      100% {
-
-        transform:
-          translate3d(0, 120vh, 0);
-
-        opacity: 0;
-      }
     }
 
 
-    /* ---------------------------------------------------------
-       MOBILE
-       --------------------------------------------------------- */
-
-    @media (max-width: 700px) {
-
-      body > .cyber-rain {
-
-        opacity: .07 !important;
-      }
-
-
-      body > .cyber-rain span {
-
-        font-size: 11px !important;
-      }
-    }
-
-
-    /* ---------------------------------------------------------
-       ACCESSIBILITY
-       --------------------------------------------------------- */
+    /* =========================================================
+       REDUCED MOTION
+       ========================================================= */
 
     @media (prefers-reduced-motion: reduce) {
 
-      body > .cyber-rain {
+      #cyber-rain-canvas {
 
-        display: none !important;
+        display: none;
+
       }
+
+    }
+
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media (max-width: 700px) {
+
+      #cyber-rain-canvas {
+
+        opacity: 0.18;
+
+      }
+
     }
 
   </style>
@@ -351,57 +171,13 @@
 
 
   <!-- =========================================================
-       CYBER RAIN BACKGROUND
+       CANVAS CYBER RAIN
        ========================================================= -->
 
-  <div
-    class="cyber-rain"
+  <canvas
+    id="cyber-rain-canvas"
     aria-hidden="true"
-  >
-
-    <span>MITRE::T1059.001</span>
-
-    <span>IOC::ANALYSIS</span>
-
-    <span>YARA::MATCH</span>
-
-    <span>SIEM::QUERY</span>
-
-    <span>EDR::ALERT</span>
-
-    <span>SIGMA::RULE</span>
-
-    <span>THREAT_HUNT</span>
-
-    <span>GHIDRA::RE</span>
-
-    <span>FLOSS::STRINGS</span>
-
-    <span>CAPA::TTP</span>
-
-    <span>ATT&amp;CK::MAPPING</span>
-
-    <span>SPL::INVESTIGATION</span>
-
-    <span>DFIR::EVIDENCE</span>
-
-    <span>MALWARE::TRIAGE</span>
-
-    <span>DNS::QUERY</span>
-
-    <span>TCP::SESSION</span>
-
-    <span>C2::BEACON</span>
-
-    <span>MITRE::T1566.001</span>
-
-    <span>MITRE::T1055</span>
-
-    <span>PE::HEADER</span>
-
-    <span>SHA256::IOC</span>
-
-  </div>
+  ></canvas>
 
 
   <!-- =========================================================
@@ -449,13 +225,15 @@
 
 
   <!-- =========================================================
-       MAIN CONTENT
+       MAIN
        ========================================================= -->
 
   <main>
 
 
-    <!-- HERO -->
+    <!-- =======================================================
+         HERO
+         ======================================================= -->
 
     <section class="research-hero container">
 
@@ -481,8 +259,9 @@
 
       <p>
 
-        A continuously published collection of technical investigations,
-        hunting methodologies, IOCs, ATT&amp;CK mappings and detection content.
+        A continuously published collection of technical
+        investigations, hunting methodologies, IOCs,
+        ATT&amp;CK mappings and detection content.
 
       </p>
 
@@ -490,13 +269,11 @@
 
 
     <!-- =======================================================
-         RESEARCH CATALOG
+         CATALOG
          ======================================================= -->
 
     <section class="container catalog">
 
-
-      <!-- TOOLBAR -->
 
       <div class="catalog-toolbar">
 
@@ -508,6 +285,7 @@
           <button
             class="filter active"
             data-category="all"
+            type="button"
           >
             ALL
           </button>
@@ -516,6 +294,7 @@
           <button
             class="filter"
             data-category="malware"
+            type="button"
           >
             MALWARE
           </button>
@@ -524,6 +303,7 @@
           <button
             class="filter"
             data-category="threat-hunting"
+            type="button"
           >
             THREAT HUNTING
           </button>
@@ -532,6 +312,7 @@
           <button
             class="filter"
             data-category="detection"
+            type="button"
           >
             DETECTION
           </button>
@@ -540,6 +321,7 @@
           <button
             class="filter"
             data-category="threat-intelligence"
+            type="button"
           >
             THREAT INTEL
           </button>
@@ -567,11 +349,11 @@
         id="catalog-status"
         class="catalog-status"
       >
-        Initializing research catalog…
+        Loading research catalog…
       </div>
 
 
-      <!-- RESEARCH CARDS -->
+      <!-- GRID -->
 
       <div
         id="research-grid"
@@ -607,11 +389,1141 @@
 
 
   <!-- =========================================================
-       APPLICATION JS
+       CANVAS CYBER RAIN ENGINE
        ========================================================= -->
 
-  <script src="assets/js/app.js"></script>
+  <script>
+
+    (() => {
+
+      "use strict";
+
+
+      /* =======================================================
+         CONFIGURATION
+         ======================================================= */
+
+      const canvas =
+        document.getElementById("cyber-rain-canvas");
+
+      if (!canvas) {
+        return;
+      }
+
+
+      const ctx =
+        canvas.getContext("2d");
+
+
+      /*
+       * Cybersecurity vocabulary.
+       *
+       * These are intentionally short so the background
+       * remains readable rather than becoming a wall of text.
+       */
+
+      const symbols = [
+
+        "MITRE",
+        "T1059",
+        "T1059.001",
+        "T1055",
+        "T1566",
+        "IOC",
+        "YARA",
+        "SIGMA",
+        "SIEM",
+        "EDR",
+        "SPL",
+        "C2",
+        "DNS",
+        "TCP",
+        "HTTP",
+        "PE",
+        "ELF",
+        "HASH",
+        "SHA256",
+        "MALWARE",
+        "THREAT",
+        "HUNT",
+        "DFIR",
+        "CAPA",
+        "FLOSS",
+        "GHIDRA",
+        "RE",
+        "TTP",
+        "ATT&CK",
+        "DETECTION",
+        "RULE",
+        "IOC::MATCH",
+        "C2::BEACON",
+        "PE::HEADER",
+        "DNS::QUERY",
+        "SOC::L3"
+
+      ];
+
+
+      /* =======================================================
+         STATE
+         ======================================================= */
+
+      let width = 0;
+
+      let height = 0;
+
+      let fontSize = 15;
+
+      let columns = [];
+
+      let animationFrame = null;
+
+      let lastFrame = 0;
+
+
+      /* =======================================================
+         RANDOM HELPERS
+         ======================================================= */
+
+      function random(min, max) {
+
+        return Math.random() * (max - min) + min;
+
+      }
+
+
+      function randomItem(array) {
+
+        return array[
+          Math.floor(
+            Math.random() * array.length
+          )
+        ];
+
+      }
+
+
+      /* =======================================================
+         RESIZE
+         ======================================================= */
+
+      function resize() {
+
+        const dpr =
+          Math.min(
+            window.devicePixelRatio || 1,
+            2
+          );
+
+
+        width =
+          window.innerWidth;
+
+        height =
+          window.innerHeight;
+
+
+        /*
+         * Keep font readable on desktop,
+         * but slightly smaller on mobile.
+         */
+
+        fontSize =
+          width < 700
+            ? 11
+            : 15;
+
+
+        canvas.width =
+          Math.floor(width * dpr);
+
+        canvas.height =
+          Math.floor(height * dpr);
+
+
+        canvas.style.width =
+          width + "px";
+
+        canvas.style.height =
+          height + "px";
+
+
+        ctx.setTransform(
+          dpr,
+          0,
+          0,
+          dpr,
+          0,
+          0
+        );
+
+
+        createColumns();
+
+      }
+
+
+      /* =======================================================
+         CREATE FALLING COLUMNS
+         ======================================================= */
+
+      function createColumns() {
+
+        const spacing =
+          width < 700
+            ? 55
+            : 85;
+
+
+        const count =
+          Math.ceil(
+            width / spacing
+          );
+
+
+        columns = [];
+
+
+        for (
+          let i = 0;
+          i < count;
+          i++
+        ) {
+
+          columns.push({
+
+            x:
+              i * spacing +
+              random(-15, 15),
+
+
+            y:
+              random(
+                -height,
+                height
+              ),
+
+
+            speed:
+              random(
+                0.35,
+                0.90
+              ),
+
+
+            length:
+              Math.floor(
+                random(
+                  7,
+                  18
+                )
+              ),
+
+
+            opacity:
+              random(
+                0.20,
+                0.55
+              ),
+
+
+            text:
+              randomItem(symbols),
+
+
+            changeTimer:
+              random(
+                20,
+                100
+              )
+
+          });
+
+        }
+
+      }
+
+
+      /* =======================================================
+         DRAW ONE COLUMN
+         ======================================================= */
+
+      function drawColumn(column) {
+
+        const {
+          x,
+          y,
+          speed,
+          length,
+          opacity
+        } = column;
+
+
+        ctx.font =
+          `600 ${fontSize}px ` +
+          `"SFMono-Regular", ` +
+          `"Cascadia Code", ` +
+          `Consolas, monospace`;
+
+
+        /*
+         * Different opacity for depth.
+         */
+
+        ctx.globalAlpha =
+          opacity;
+
+
+        /*
+         * Main cyan color.
+         */
+
+        ctx.fillStyle =
+          "#48e6ff";
+
+
+        /*
+         * Small glow.
+         */
+
+        ctx.shadowColor =
+          "rgba(72,230,255,0.45)";
+
+        ctx.shadowBlur =
+          7;
+
+
+        /*
+         * Draw characters vertically.
+         */
+
+        for (
+          let i = 0;
+          i < length;
+          i++
+        ) {
+
+          const char =
+            column.text[
+              i %
+              column.text.length
+            ];
+
+
+          const charY =
+            y +
+            i *
+            (fontSize + 7);
+
+
+          /*
+           * Fade characters farther down
+           * the column.
+           */
+
+          const fade =
+            1 -
+            i / (length * 1.35);
+
+
+          ctx.globalAlpha =
+            Math.max(
+              0.08,
+              opacity * fade
+            );
+
+
+          ctx.fillText(
+            char,
+            x,
+            charY
+          );
+
+        }
+
+
+        /*
+         * Reset shadow.
+         */
+
+        ctx.shadowBlur =
+          0;
+
+
+        /*
+         * Move column.
+         */
+
+        column.y += speed;
+
+
+        /*
+         * Occasionally change its
+         * displayed cybersecurity term.
+         */
+
+        column.changeTimer--;
+
+        if (
+          column.changeTimer <= 0
+        ) {
+
+          column.text =
+            randomItem(symbols);
+
+
+          column.changeTimer =
+            random(
+              30,
+              120
+            );
+
+        }
+
+
+        /*
+         * Reset after leaving screen.
+         */
+
+        if (
+          column.y >
+          height +
+          fontSize *
+          length
+        ) {
+
+          column.y =
+            random(
+              -height * 0.5,
+              -100
+            );
+
+
+          column.speed =
+            random(
+              0.35,
+              0.90
+            );
+
+
+          column.length =
+            Math.floor(
+              random(
+                7,
+                18
+              )
+            );
+
+
+          column.opacity =
+            random(
+              0.20,
+              0.55
+            );
+
+        }
+
+      }
+
+
+      /* =======================================================
+         ANIMATION LOOP
+         ======================================================= */
+
+      function animate(timestamp) {
+
+        /*
+         * Limit animation to roughly 30 FPS.
+         * This keeps the portfolio lightweight.
+         */
+
+        if (
+          timestamp -
+          lastFrame <
+          33
+        ) {
+
+          animationFrame =
+            requestAnimationFrame(
+              animate
+            );
+
+          return;
+
+        }
+
+
+        lastFrame =
+          timestamp;
+
+
+        /*
+         * Clear canvas.
+         */
+
+        ctx.clearRect(
+          0,
+          0,
+          width,
+          height
+        );
+
+
+        /*
+         * Draw columns.
+         */
+
+        for (
+          const column
+          of columns
+        ) {
+
+          drawColumn(
+            column
+          );
+
+        }
+
+
+        animationFrame =
+          requestAnimationFrame(
+            animate
+          );
+
+      }
+
+
+      /* =======================================================
+         INITIALIZE
+         ======================================================= */
+
+      resize();
+
+
+      window.addEventListener(
+        "resize",
+        resize,
+        {
+          passive: true
+        }
+      );
+
+
+      animationFrame =
+        requestAnimationFrame(
+          animate
+        );
+
+
+      /* =======================================================
+         CLEANUP
+         ======================================================= */
+
+      window.addEventListener(
+        "beforeunload",
+        () => {
+
+          if (
+            animationFrame
+          ) {
+
+            cancelAnimationFrame(
+              animationFrame
+            );
+
+          }
+
+        }
+      );
+
+
+    })();
+
+  </script>
+
+
+  <!-- =========================================================
+       RESEARCH CATALOG ENGINE
+       ========================================================= -->
+
+  <script>
+
+    (() => {
+
+      "use strict";
+
+
+      const BASE =
+        "/vaibhavkamdi/";
+
+
+      const CATALOG =
+        BASE +
+        "research/research.json";
+
+
+      const grid =
+        document.getElementById(
+          "research-grid"
+        );
+
+
+      const status =
+        document.getElementById(
+          "catalog-status"
+        );
+
+
+      const search =
+        document.getElementById(
+          "research-search"
+        );
+
+
+      const filters =
+        document.querySelectorAll(
+          ".filter"
+        );
+
+
+      let research =
+        [];
+
+
+      let activeCategory =
+        "all";
+
+
+      /* =======================================================
+         HELPERS
+         ======================================================= */
+
+      function escapeHTML(value) {
+
+        return String(
+          value ?? ""
+        )
+        .replace(
+          /&/g,
+          "&amp;"
+        )
+        .replace(
+          /</g,
+          "&lt;"
+        )
+        .replace(
+          />/g,
+          "&gt;"
+        )
+        .replace(
+          /"/g,
+          "&quot;"
+        )
+        .replace(
+          /'/g,
+          "&#039;"
+        );
+
+      }
+
+
+      function normalize(value) {
+
+        return String(
+          value ?? ""
+        )
+        .toLowerCase()
+        .trim();
+
+      }
+
+
+      function getTags(item) {
+
+        if (
+          Array.isArray(
+            item.tags
+          )
+        ) {
+
+          return item.tags;
+
+        }
+
+
+        if (
+          typeof item.tags ===
+          "string"
+        ) {
+
+          return item.tags
+            .split(",")
+            .map(
+              tag =>
+                tag.trim()
+            )
+            .filter(Boolean);
+
+        }
+
+
+        return [];
+
+      }
+
+
+      function getUrl(item) {
+
+        return (
+          item.url ||
+          item.path ||
+          item.href ||
+          "#"
+        );
+
+      }
+
+
+      function getCategory(item) {
+
+        return normalize(
+          item.category ||
+          "uncategorized"
+        );
+
+      }
+
+
+      /* =======================================================
+         RENDER
+         ======================================================= */
+
+      function render() {
+
+        if (!grid) {
+          return;
+        }
+
+
+        const query =
+          normalize(
+            search
+              ? search.value
+              : ""
+          );
+
+
+        const filtered =
+          research.filter(
+            item => {
+
+              const category =
+                getCategory(
+                  item
+                );
+
+
+              const tags =
+                getTags(
+                  item
+                );
+
+
+              const haystack =
+                normalize(
+                  [
+                    item.title,
+                    item.description,
+                    item.date,
+                    category,
+                    ...tags
+                  ].join(" ")
+                );
+
+
+              const categoryMatch =
+                activeCategory ===
+                "all" ||
+                category ===
+                activeCategory;
+
+
+              const searchMatch =
+                !query ||
+                haystack.includes(
+                  query
+                );
+
+
+              return (
+                categoryMatch &&
+                searchMatch
+              );
+
+            }
+          );
+
+
+        grid.innerHTML =
+          "";
+
+
+        if (
+          filtered.length === 0
+        ) {
+
+          grid.innerHTML = `
+
+            <div class="empty-state">
+
+              <strong>
+                No research found.
+              </strong>
+
+              <span>
+                Try another category or search term.
+              </span>
+
+            </div>
+
+          `;
+
+
+          if (status) {
+
+            status.textContent =
+              "No matching research.";
+
+          }
+
+
+          return;
+
+        }
+
+
+        for (
+          const item
+          of filtered
+        ) {
+
+          const title =
+            item.title ||
+            "Untitled Research";
+
+
+          const category =
+            item.category ||
+            "Research";
+
+
+          const description =
+            item.description ||
+            "Technical cybersecurity research.";
+
+
+          const date =
+            item.date ||
+            "";
+
+
+          const tags =
+            getTags(
+              item
+            );
+
+
+          const url =
+            getUrl(
+              item
+            );
+
+
+          const tagHTML =
+            tags
+              .slice(
+                0,
+                5
+              )
+              .map(
+                tag => `
+                  <span class="tag">
+                    ${escapeHTML(tag)}
+                  </span>
+                `
+              )
+              .join("");
+
+
+          const card =
+            document.createElement(
+              "article"
+            );
+
+
+          card.className =
+            "research-card";
+
+
+          card.innerHTML = `
+
+            <div class="research-card-meta">
+
+              <span>
+                ${escapeHTML(category)}
+              </span>
+
+              ${
+                date
+                  ? `
+                    <span>
+                      ${escapeHTML(date)}
+                    </span>
+                  `
+                  : ""
+              }
+
+            </div>
+
+
+            <h2>
+              ${escapeHTML(title)}
+            </h2>
+
+
+            <p>
+              ${escapeHTML(description)}
+            </p>
+
+
+            ${
+              tagHTML
+                ? `
+                  <div class="research-card-tags">
+                    ${tagHTML}
+                  </div>
+                `
+                : ""
+            }
+
+
+            <a
+              class="research-card-link"
+              href="${escapeHTML(url)}"
+            >
+              Read research →
+            </a>
+
+          `;
+
+
+          grid.appendChild(
+            card
+          );
+
+        }
+
+
+        if (status) {
+
+          status.textContent =
+            `${filtered.length} research ${
+              filtered.length === 1
+                ? "item"
+                : "items"
+            }`;
+
+        }
+
+      }
+
+
+      /* =======================================================
+         LOAD CATALOG
+         ======================================================= */
+
+      async function loadCatalog() {
+
+        try {
+
+          const response =
+            await fetch(
+              CATALOG +
+              "?v=" +
+              Date.now(),
+              {
+                cache:
+                  "no-store"
+              }
+            );
+
+
+          if (
+            !response.ok
+          ) {
+
+            throw new Error(
+              `HTTP ${response.status}`
+            );
+
+          }
+
+
+          const data =
+            await response.json();
+
+
+          /*
+           * Support either:
+           *
+           * [...]
+           *
+           * or:
+           *
+           * { "research": [...] }
+           */
+
+          if (
+            Array.isArray(data)
+          ) {
+
+            research =
+              data;
+
+          } else if (
+            Array.isArray(
+              data.research
+            )
+          ) {
+
+            research =
+              data.research;
+
+          } else if (
+            Array.isArray(
+              data.items
+            )
+          ) {
+
+            research =
+              data.items;
+
+          } else {
+
+            research =
+              [];
+
+          }
+
+
+          render();
+
+
+        } catch (error) {
+
+          console.error(
+            "Research catalog error:",
+            error
+          );
+
+
+          if (status) {
+
+            status.textContent =
+              "Research catalog unavailable.";
+
+          }
+
+
+          if (grid) {
+
+            grid.innerHTML = `
+
+              <div class="empty-state">
+
+                <strong>
+                  Research catalog unavailable.
+                </strong>
+
+                <span>
+                  Please try again shortly.
+                </span>
+
+              </div>
+
+            `;
+
+          }
+
+        }
+
+      }
+
+
+      /* =======================================================
+         CATEGORY FILTERS
+         ======================================================= */
+
+      filters.forEach(
+        filter => {
+
+          filter.addEventListener(
+            "click",
+            () => {
+
+              filters.forEach(
+                item =>
+                  item.classList.remove(
+                    "active"
+                  )
+              );
+
+
+              filter.classList.add(
+                "active"
+              );
+
+
+              activeCategory =
+                normalize(
+                  filter.dataset.category ||
+                  "all"
+                );
+
+
+              render();
+
+            }
+          );
+
+        }
+      );
+
+
+      /* =======================================================
+         SEARCH
+         ======================================================= */
+
+      if (search) {
+
+        search.addEventListener(
+          "input",
+          render
+        );
+
+      }
+
+
+      /* =======================================================
+         START
+         ======================================================= */
+
+      loadCatalog();
+
+    })();
+
+  </script>
 
 </body>
-
 </html>
+```
