@@ -1,10 +1,73 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Security research, malware analysis, threat hunting and detection engineering by Vaibhav Kamdi."><title>Research | Vaibhav Kamdi</title><link rel="stylesheet" href="../assets/style.css"></head>
-<body><div class="grid-bg"></div><header class="nav"><a class="brand" href="../index.html"><span>VK</span>/ RESEARCH</a><button class="menu-toggle">☰</button><nav><a href="../index.html">Portfolio</a><a href="../resume.html">Resume</a></nav></header>
-<main><section class="section research-hero"><p class="eyebrow">SECURITY RESEARCH PORTAL</p><h1>Malware analysis.<br><em>Threat hunts.</em><br>Detection research.</h1><p class="lead">Every HTML report uploaded into the research repository becomes a published research artifact through the GitHub Actions catalog builder.</p>
-<div class="research-toolbar"><button class="filter active" data-filter="all">ALL</button><button class="filter" data-filter="malware">MALWARE</button><button class="filter" data-filter="threat-hunting">THREAT HUNTING</button><button class="filter" data-filter="detection">DETECTION</button><button class="filter" data-filter="threat-intelligence">THREAT INTEL</button></div>
-<div class="research-grid" id="research-grid"><div class="empty">Loading research…</div></div></section></main><footer><span>© <span id="year"></span> Vaibhav Kamdi</span><span>Research is sanitized for public publication.</span></footer>
-<script src="../assets/app.js"></script><script>
-let all=[];async function load(){try{all=await (await fetch("research.json?"+Date.now())).json();render("all")}catch(e){document.getElementById("research-grid").innerHTML='<div class="empty">No research catalog found yet. Upload an HTML report and push it to GitHub.</div>'}}
-function render(f){let a=f==="all"?all:all.filter(x=>x.category===f);let g=document.getElementById("research-grid");g.innerHTML=a.length?a.map(x=>`<a class="research-card" href="${x.path}"><div class="top"><span class="category">${x.category.replaceAll("-"," ").toUpperCase()}</span><span class="badge">${x.date||"RESEARCH"}</span></div><h2>${x.title}</h2><p>${x.description||"Technical security research and analysis."}</p><div class="bottom"><span class="read">READ REPORT →</span><span class="muted">${(x.tags||[]).join(" · ")}</span></div></a>`).join(""):'<div class="empty">No reports in this category.</div>'}
-document.querySelectorAll(".filter").forEach(b=>b.onclick=()=>{document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");render(b.dataset.filter)});load();
-</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Vaibhav Kamdi — Senior Threat Hunter, incident response, detection engineering, threat intelligence, malware analysis and security research.">
+<meta name="author" content="Vaibhav Kamdi">
+<meta property="og:title" content="Vaibhav Kamdi | Threat Hunter & Security Research">
+<meta property="og:description" content="Threat Hunting · DFIR · Detection Engineering · Malware Analysis · Security Automation">
+<title>Vaibhav Kamdi | Threat Hunter & Security Research</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="nav">
+<a class="brand" href="index.html"><span class="brand-mark">VK</span>/ SECURITY</a>
+<button class="menu" aria-label="Menu">☰</button>
+<nav class="nav-links"><a href="#about">ABOUT</a><a href="#expertise">EXPERTISE</a><a href="#projects">PROJECTS</a><a href="#research">RESEARCH</a><a href="resume.html">RESUME</a></nav>
+<a class="nav-btn" href="resume.pdf">DOWNLOAD CV ↗</a>
+</header>
+
+<main>
+<section class="container hero">
+<div class="hero-copy">
+<div class="status"><i></i> OPEN TO CYBERSECURITY OPPORTUNITIES</div>
+<p class="eyebrow">SENIOR THREAT HUNTER · SECURITY RESEARCHER</p>
+<h1>Hunt threats.<br><em>Engineer detections.</em><br>Research attacks.</h1>
+<p class="lead">Cybersecurity professional focused on threat hunting, incident response, detection engineering, threat intelligence, malware analysis and security automation.</p>
+<div class="actions"><a class="btn primary" href="resume.html">VIEW RESUME</a><a class="btn" href="research/">EXPLORE RESEARCH</a></div>
+<div class="metrics"><div class="metric"><strong>6.5+</strong><span>Years Cybersecurity</span></div><div class="metric"><strong>MITRE</strong><span>ATT&CK-driven hunting</span></div><div class="metric"><strong>AI + SOC</strong><span>Security automation</span></div></div>
+</div>
+<div class="terminal"><div class="term-head"><i class="term-dot"></i><i class="term-dot"></i><i class="term-dot"></i><span class="term-title">threat-hunter@lab:~</span></div><div class="term-body"><span class="prompt">$ whoami</span><br>vaibhav.kamdi<br><br><span class="prompt">$ ./hunt --mode=continuous</span><br><span class="ok">[+] telemetry correlated<br>[+] ATT&CK mapped<br>[+] detections engineered<br>[+] research published</span><br><br><span class="prompt">$</span> <span class="cursor">▋</span></div></div>
+</section>
+
+<section id="about" class="section container">
+<p class="eyebrow">01 / PROFILE</p>
+<div class="section-title"><h2>Security operations with a <em>research mindset.</em></h2><p class="muted">Threat hunting · DFIR · Detection · Malware · Intelligence</p></div>
+<p class="hero-copy lead">I investigate attacker behavior across SIEM, EDR, endpoint and intelligence telemetry, then turn confirmed behavior into hunt hypotheses, detections and reusable security research. My technical work also extends into malware analysis, reverse engineering and security automation.</p>
+</section>
+
+<section id="expertise" class="section container">
+<p class="eyebrow">02 / CORE EXPERTISE</p>
+<div class="grid-3">
+<article class="card"><h3>Threat Hunting</h3><p>Hypothesis-driven investigation across SIEM, EDR, endpoint and network telemetry.</p><div class="tags"><span class="tag">SPL</span><span class="tag">MITRE ATT&CK</span><span class="tag">SIEM</span></div></article>
+<article class="card"><h3>Incident Response</h3><p>IOC analysis, investigation, attack-chain reconstruction and response support.</p><div class="tags"><span class="tag">DFIR</span><span class="tag">IOC</span></div></article>
+<article class="card"><h3>Detection Engineering</h3><p>Threat-informed detection development and tuning using Sigma, YARA and SPL.</p><div class="tags"><span class="tag">Sigma</span><span class="tag">YARA</span></div></article>
+<article class="card"><h3>Malware Analysis</h3><p>Static/dynamic analysis, PE triage, reverse engineering and behavioral mapping.</p><div class="tags"><span class="tag">Ghidra</span><span class="tag">REMnux</span><span class="tag">capa</span></div></article>
+<article class="card"><h3>Threat Intelligence</h3><p>IOC enrichment, TTP analysis and intelligence-driven hunting.</p><div class="tags"><span class="tag">Recorded Future</span><span class="tag">MISP</span></div></article>
+<article class="card"><h3>Security Automation</h3><p>Python/API-driven tooling for investigation, analysis and SOC workflows.</p><div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Docker</span></div></article>
+</div>
+</section>
+
+<section id="projects" class="section container">
+<p class="eyebrow">03 / SELECTED PROJECTS</p>
+<div class="grid-3">
+<article class="card"><h3>ThreatHunterAI</h3><p>Agentic security investigation concept for IOC extraction, TTP mapping, SPL/Sigma generation and reporting.</p><div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">LLM</span></div></article>
+<article class="card"><h3>Malware Analysis Workbench</h3><p>Static/dynamic workflow integrating PE triage, YARA, Ghidra, capa and ATT&CK mapping.</p><div class="tags"><span class="tag">REMnux</span><span class="tag">Ghidra</span></div></article>
+<article class="card"><h3>EVTX → MITRE Mapper</h3><p>Python workflow for Windows event analysis and ATT&CK technique mapping.</p><div class="tags"><span class="tag">Python</span><span class="tag">EVTX</span></div></article>
+</div>
+</section>
+
+<section id="research" class="section container">
+<p class="eyebrow">04 / LIVE RESEARCH FEED</p>
+<div class="section-title"><h2>New reports appear <em>automatically.</em></h2><a class="btn" href="research/">OPEN RESEARCH PORTAL →</a></div>
+<div class="research-strip" data-latest-research><div class="empty">Loading research catalog…</div></div>
+</section>
+
+<section class="section container cta">
+<p class="eyebrow">05 / CONTACT</p><h2>Let's talk security.</h2><p class="muted">Threat hunting · DFIR · Detection Engineering · Malware Analysis · Security Automation</p>
+<div class="actions" style="justify-content:center"><a class="btn primary" href="mailto:YOUR_EMAIL@example.com">EMAIL ME</a><a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noopener">LINKEDIN ↗</a><a class="btn" href="https://github.com/" target="_blank" rel="noopener">GITHUB ↗</a></div>
+</section>
+</main>
+<footer><span>© <span id="year"></span> Vaibhav Kamdi</span><span>Threat Hunting · DFIR · Security Research</span></footer>
+<script src="assets/js/app.js"></script>
+</body></html>
