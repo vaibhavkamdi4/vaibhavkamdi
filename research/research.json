@@ -1,0 +1,15 @@
+[
+  {
+    "title": "Suspicious DLL Analysis",
+    "description": "Example static and dynamic analysis of a suspicious DLL.",
+    "category": "malware",
+    "date": "2026-10-08",
+    "tags": [
+      "PE",
+      "YARA",
+      "Ghidra",
+      "MITRE"
+    ],
+    "path": "malware/suspicious-dll.html"
+  }
+]
