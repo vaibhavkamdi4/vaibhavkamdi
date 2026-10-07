@@ -1,34 +1,410 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Vaibhav Kamdi | Cybersecurity Research</title>
-  <meta name="description" content="Cybersecurity portfolio, malware analysis, threat hunting and detection research.">
-  <base href="/vaibhavkamdi/">
-  <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-<div id="falling-code" aria-hidden="true"></div>
-<header class="topbar">
-  <a class="brand" href="index.html"><span class="brand-mark">VK</span><span>VAIBHAV<span class="muted">KAMDI</span></span></a>
-  <nav><a class="active" href="index.html">Home</a><a href="research/">Research</a><a href="resume.html">Resume</a></nav>
-</header>
 
-<main>
-  <section class="hero container">
-    <div>
-      <div class="eyebrow"><span class="dot"></span> CYBERSECURITY • THREAT RESEARCH • DETECTION</div>
-      <h1>Threat Hunting<br><span>&amp; Malware Research</span></h1>
-      <p class="hero-copy">A professional security research portfolio covering malware analysis, threat hunting, threat intelligence and detection engineering.</p>
-      <div class="hero-actions">
-        <a class="btn primary" href="research/">Explore Research →</a>
-        <a class="btn ghost" href="resume.html">View Resume</a>
-      </div>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Vaibhav Kamdi | Cybersecurity Research</title>
+
+    <meta name="description"
+        content="Cybersecurity portfolio, malware analysis, threat hunting, threat intelligence and detection research.">
+
+    <base href="/vaibhavkamdi/">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        /* =========================================
+           CYBERSECURITY FALLING WORD BACKGROUND
+           ========================================= */
+
+        .cyber-rain {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.18;
+        }
+
+        .cyber-rain span {
+            position: absolute;
+            top: -180px;
+
+            color: #48e6ff;
+
+            font-family:
+                "SFMono-Regular",
+                Consolas,
+                "Liberation Mono",
+                monospace;
+
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+
+            text-shadow:
+                0 0 5px rgba(72, 230, 255, .55),
+                0 0 12px rgba(72, 230, 255, .25);
+
+            animation: cyberFall 14s linear infinite;
+        }
+
+        /* Green cybersecurity streams */
+
+        .cyber-rain span:nth-child(3n) {
+            color: #65f29b;
+
+            text-shadow:
+                0 0 5px rgba(101, 242, 155, .55),
+                0 0 12px rgba(101, 242, 155, .25);
+        }
+
+        /* Stream positions */
+
+        .cyber-rain span:nth-child(1) {
+            left: 3%;
+            animation-delay: -2s;
+            animation-duration: 14s;
+        }
+
+        .cyber-rain span:nth-child(2) {
+            left: 8%;
+            animation-delay: -9s;
+            animation-duration: 18s;
+        }
+
+        .cyber-rain span:nth-child(3) {
+            left: 14%;
+            animation-delay: -5s;
+            animation-duration: 13s;
+        }
+
+        .cyber-rain span:nth-child(4) {
+            left: 20%;
+            animation-delay: -12s;
+            animation-duration: 17s;
+        }
+
+        .cyber-rain span:nth-child(5) {
+            left: 27%;
+            animation-delay: -4s;
+            animation-duration: 15s;
+        }
+
+        .cyber-rain span:nth-child(6) {
+            left: 33%;
+            animation-delay: -10s;
+            animation-duration: 20s;
+        }
+
+        .cyber-rain span:nth-child(7) {
+            left: 39%;
+            animation-delay: -7s;
+            animation-duration: 14s;
+        }
+
+        .cyber-rain span:nth-child(8) {
+            left: 45%;
+            animation-delay: -14s;
+            animation-duration: 19s;
+        }
+
+        .cyber-rain span:nth-child(9) {
+            left: 51%;
+            animation-delay: -3s;
+            animation-duration: 16s;
+        }
+
+        .cyber-rain span:nth-child(10) {
+            left: 57%;
+            animation-delay: -11s;
+            animation-duration: 18s;
+        }
+
+        .cyber-rain span:nth-child(11) {
+            left: 63%;
+            animation-delay: -6s;
+            animation-duration: 15s;
+        }
+
+        .cyber-rain span:nth-child(12) {
+            left: 69%;
+            animation-delay: -15s;
+            animation-duration: 21s;
+        }
+
+        .cyber-rain span:nth-child(13) {
+            left: 75%;
+            animation-delay: -8s;
+            animation-duration: 14s;
+        }
+
+        .cyber-rain span:nth-child(14) {
+            left: 81%;
+            animation-delay: -13s;
+            animation-duration: 17s;
+        }
+
+        .cyber-rain span:nth-child(15) {
+            left: 87%;
+            animation-delay: -5s;
+            animation-duration: 15s;
+        }
+
+        .cyber-rain span:nth-child(16) {
+            left: 92%;
+            animation-delay: -16s;
+            animation-duration: 20s;
+        }
+
+        .cyber-rain span:nth-child(17) {
+            left: 96%;
+            animation-delay: -9s;
+            animation-duration: 13s;
+        }
+
+        .cyber-rain span:nth-child(18) {
+            left: 11%;
+            animation-delay: -17s;
+            animation-duration: 22s;
+        }
+
+        .cyber-rain span:nth-child(19) {
+            left: 48%;
+            animation-delay: -18s;
+            animation-duration: 19s;
+        }
+
+        .cyber-rain span:nth-child(20) {
+            left: 72%;
+            animation-delay: -20s;
+            animation-duration: 16s;
+        }
+
+        .cyber-rain span:nth-child(21) {
+            left: 24%;
+            animation-delay: -7s;
+            animation-duration: 18s;
+        }
+
+        /* Falling animation */
+
+        @keyframes cyberFall {
+
+            0% {
+                transform: translateY(-180px);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            85% {
+                opacity: .8;
+            }
+
+            100% {
+                transform: translateY(115vh);
+                opacity: 0;
+            }
+        }
+
+        /* Keep website content above animation */
+
+        .topbar,
+        main,
+        footer {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 700px) {
+
+            .cyber-rain {
+                opacity: .10;
+            }
+
+            .cyber-rain span {
+                font-size: 9px;
+            }
+        }
+
+        /* Disable animation during printing */
+
+        @media print {
+
+            .cyber-rain {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================================
+         FALLING CYBERSECURITY WORDS
+         ========================================= -->
+
+    <div class="cyber-rain" aria-hidden="true">
+
+        <span>MITRE</span>
+        <span>T1059.001</span>
+        <span>YARA</span>
+        <span>SIEM</span>
+        <span>IOC</span>
+        <span>EDR</span>
+        <span>SIGMA</span>
+        <span>THREAT_HUNT</span>
+        <span>GHIDRA</span>
+        <span>FLOSS</span>
+        <span>CAPA</span>
+        <span>ATT&amp;CK</span>
+        <span>SPL</span>
+        <span>DFIR</span>
+        <span>MALWARE</span>
+        <span>DNS</span>
+        <span>TCP</span>
+        <span>C2</span>
+        <span>T1566.001</span>
+        <span>T1055</span>
+        <span>PE_HEADER</span>
+
     </div>
-    <div class="terminal-card">
-      <div class="terminal-head"><span>research-console</span><span>● ● ●</span></div>
-      <pre><code>$ whoami
+
+
+    <!-- =========================================
+         NAVIGATION
+         ========================================= -->
+
+    <header class="topbar">
+
+        <a class="brand" href="index.html">
+
+            <span class="brand-mark">
+                VK
+            </span>
+
+            <span>
+                VAIBHAV<span class="muted">KAMDI</span>
+            </span>
+
+        </a>
+
+
+        <nav>
+
+            <a class="active" href="index.html">
+                Home
+            </a>
+
+            <a href="research/">
+                Research
+            </a>
+
+            <a href="resume.html">
+                Resume
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================================
+         MAIN CONTENT
+         ========================================= -->
+
+    <main>
+
+
+        <!-- HERO -->
+
+        <section class="hero container">
+
+            <div>
+
+                <div class="eyebrow">
+
+                    <span class="dot"></span>
+
+                    CYBERSECURITY • THREAT RESEARCH • DETECTION
+
+                </div>
+
+
+                <h1>
+
+                    Threat Hunting
+                    <br>
+
+                    <span>&amp; Malware Research</span>
+
+                </h1>
+
+
+                <p class="hero-copy">
+
+                    A professional security research portfolio covering
+                    malware analysis, threat hunting, threat intelligence
+                    and detection engineering.
+
+                </p>
+
+
+                <div class="hero-actions">
+
+                    <a
+                        class="btn primary"
+                        href="research/">
+
+                        Explore Research →
+
+                    </a>
+
+
+                    <a
+                        class="btn ghost"
+                        href="resume.html">
+
+                        View Resume
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- TERMINAL -->
+
+            <div class="terminal-card">
+
+                <div class="terminal-head">
+
+                    <span>
+                        research-console
+                    </span>
+
+                    <span>
+                        ● ● ●
+                    </span>
+
+                </div>
+
+
+                <pre><code>$ whoami
 vaibhav_kamdi
 
 $ focus
@@ -39,127 +415,421 @@ threat-intelligence
 
 $ status
 <span class="ok">ONLINE / RESEARCHING</span></code></pre>
-    </div>
-  </section>
 
-  <section class="container stats">
-    <div><strong id="stat-total">—</strong><span>Published Reports</span></div>
-    <div><strong>4</strong><span>Research Domains</span></div>
-    <div><strong>MITRE</strong><span>ATT&amp;CK Mapping</span></div>
-    <div><strong>IOC</strong><span>Driven Investigations</span></div>
-  </section>
+            </div>
 
-  <section class="container section">
-    <div class="section-head">
-      <div><div class="eyebrow">LATEST WORK</div><h2>Recent Research</h2></div>
-      <a href="research/" class="text-link">View all →</a>
-    </div>
-    <div id="latest-research" class="research-grid">
-      <div class="loading">Loading research catalog<span>...</span></div>
-    </div>
-  </section>
-</main>
-
-<footer><div class="container footer-inner"><span>© 2026 Vaibhav Kamdi</span><span>Public research only · No client-confidential data</span></div></footer>
-<script src="assets/js/app.js"></script>
-
-<script>
-const cyberWords = [
-    "MITRE",
-    "ATT&CK",
-    "YARA",
-    "SIGMA",
-    "SIEM",
-    "EDR",
-    "IOC",
-    "T1059",
-    "T1566",
-    "T1055",
-    "SPL",
-    "KQL",
-    "MALWARE",
-    "THREAT",
-    "HUNT",
-    "DFIR",
-    "SOC",
-    "IR",
-    "APT",
-    "PE",
-    "DLL",
-    "EXE",
-    "C2",
-    "DNS",
-    "HTTP",
-    "TCP",
-    "FLOSS",
-    "CAPA",
-    "GHIDRA",
-    "REMNUX",
-    "PYTHON",
-    "DETECTION",
-    "INTELLIGENCE",
-    "FORENSICS"
-];
-
-const fallingContainer = document.getElementById("falling-code");
-
-function createCodeStream() {
-
-    const stream = document.createElement("div");
-
-    stream.className = "code-stream";
-
-    if (Math.random() > 0.55) {
-        stream.classList.add("green");
-    }
-
-    // Build a long stream of cybersecurity terms
-    let content = "";
-
-    for (let i = 0; i < 18; i++) {
-
-        const word =
-            cyberWords[
-                Math.floor(Math.random() * cyberWords.length)
-            ];
-
-        content += word + "  ";
-
-    }
-
-    stream.textContent = content;
-
-    // Random horizontal position
-    stream.style.left =
-        Math.random() * 100 + "%";
-
-    // Random animation duration
-    const duration =
-        12 + Math.random() * 18;
-
-    stream.style.animationDuration =
-        duration + "s";
-
-    // Random delay
-    stream.style.animationDelay =
-        -(Math.random() * duration) + "s";
-
-    // Slightly different font size
-    stream.style.fontSize =
-        (9 + Math.random() * 5) + "px";
-
-    fallingContainer.appendChild(stream);
-}
+        </section>
 
 
-// Create background streams
-const streamCount =
-    window.innerWidth < 700 ? 18 : 35;
+        <!-- STATISTICS -->
 
-for (let i = 0; i < streamCount; i++) {
-    createCodeStream();
-}
-</script>
-  
+        <section class="container stats">
+
+            <div>
+
+                <strong id="stat-total">
+                    —
+                </strong>
+
+                <span>
+                    Published Reports
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    4
+                </strong>
+
+                <span>
+                    Research Domains
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    MITRE
+                </strong>
+
+                <span>
+                    ATT&amp;CK Mapping
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    IOC
+                </strong>
+
+                <span>
+                    Driven Investigations
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- LATEST RESEARCH -->
+
+        <section class="container section">
+
+            <div class="section-head">
+
+                <div>
+
+                    <div class="eyebrow">
+                        LATEST WORK
+                    </div>
+
+                    <h2>
+                        Recent Research
+                    </h2>
+
+                </div>
+
+
+                <a
+                    href="research/"
+                    class="text-link">
+
+                    View all →
+
+                </a>
+
+            </div>
+
+
+            <div
+                id="latest-research"
+                class="research-grid">
+
+                <div class="loading">
+
+                    Loading research catalog
+                    <span>...</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+         ========================================= -->
+
+    <footer>
+
+        <div class="container footer-inner">
+
+            <span>
+                © 2026 Vaibhav Kamdi
+            </span>
+
+            <span>
+                Public research only · No client-confidential data
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================
+         RESEARCH JAVASCRIPT
+         ========================================= -->
+
+    <script>
+
+        (() => {
+
+            "use strict";
+
+
+            /*
+             * GitHub Pages PROJECT SITE
+             *
+             * https://vaibhavkamdi4.github.io/vaibhavkamdi/
+             */
+
+            const BASE = "/vaibhavkamdi/";
+
+            const CATALOG =
+                BASE + "research/research.json";
+
+
+            /*
+             * HTML escaping
+             */
+
+            const esc = (value) => {
+
+                return String(value ?? "")
+                    .replace(/[&<>"']/g, character => ({
+
+                        "&": "&amp;",
+                        "<": "&lt;",
+                        ">": "&gt;",
+                        '"': "&quot;",
+                        "'": "&#039;"
+
+                    }[character]));
+
+            };
+
+
+            /*
+             * Load research catalog
+             */
+
+            async function loadCatalog() {
+
+                const response = await fetch(
+                    CATALOG + "?v=" + Date.now(),
+                    {
+                        cache: "no-store",
+
+                        headers: {
+                            "Accept":
+                                "application/json"
+                        }
+                    }
+                );
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        `HTTP ${response.status}`
+                    );
+
+                }
+
+
+                const data =
+                    await response.json();
+
+
+                if (!Array.isArray(data)) {
+
+                    throw new Error(
+                        "research.json is not an array"
+                    );
+
+                }
+
+
+                return data;
+
+            }
+
+
+            /*
+             * Research card
+             */
+
+            function createCard(item) {
+
+                return `
+
+                    <a
+                        class="research-card"
+                        href="${esc(BASE + item.url)}">
+
+                        <span class="badge">
+
+                            ${esc(
+                                (item.category || "research")
+                                .replaceAll("-", " ")
+                                .toUpperCase()
+                            )}
+
+                        </span>
+
+
+                        <h3>
+
+                            ${esc(
+                                item.title ||
+                                item.file
+                            )}
+
+                        </h3>
+
+
+                        <p>
+
+                            ${esc(
+                                item.description ||
+                                "Technical cybersecurity research report."
+                            )}
+
+                        </p>
+
+
+                        <div class="card-foot">
+
+                            <span>
+
+                                ${esc(
+                                    item.date || ""
+                                )}
+
+                            </span>
+
+
+                            <span>
+
+                                ${esc(
+                                    (item.tags || [])
+                                    .slice(0, 3)
+                                    .join(" · ")
+                                )}
+
+                            </span>
+
+                        </div>
+
+                    </a>
+
+                `;
+
+            }
+
+
+            /*
+             * Homepage research
+             */
+
+            async function initializeHomeResearch() {
+
+                const grid =
+                    document.querySelector(
+                        "#latest-research"
+                    );
+
+
+                if (!grid) {
+
+                    return;
+
+                }
+
+
+                try {
+
+                    const items =
+                        await loadCatalog();
+
+
+                    const sorted =
+                        [...items].sort(
+                            (a, b) =>
+                                String(b.date)
+                                .localeCompare(
+                                    String(a.date)
+                                )
+                        );
+
+
+                    const total =
+                        document.querySelector(
+                            "#stat-total"
+                        );
+
+
+                    if (total) {
+
+                        total.textContent =
+                            sorted.length;
+
+                    }
+
+
+                    if (!sorted.length) {
+
+                        grid.innerHTML = `
+
+                            <div class="empty">
+
+                                No research reports
+                                published yet.
+
+                            </div>
+
+                        `;
+
+                        return;
+
+                    }
+
+
+                    grid.innerHTML =
+                        sorted
+                        .slice(0, 3)
+                        .map(createCard)
+                        .join("");
+
+
+                } catch (error) {
+
+                    console.error(
+                        "Research catalog error:",
+                        error
+                    );
+
+
+                    grid.innerHTML = `
+
+                        <div class="empty">
+
+                            Research catalog is
+                            temporarily unavailable.
+
+                            <br><br>
+
+                            <a
+                                class="text-link"
+                                href="${CATALOG}"
+                                target="_blank"
+                                rel="noopener">
+
+                                Open catalog diagnostics →
+
+                            </a>
+
+                        </div>
+
+                    `;
+
+                }
+
+            }
+
+
+            /*
+             * Start
+             */
+
+            initializeHomeResearch();
+
+        })();
+
+    </script>
+
 </body>
+
 </html>
