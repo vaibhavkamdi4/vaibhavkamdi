@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- REQUIRED FOR AUTOMATIC INDEXING -->
+<meta name="research-title" content="REPLACE: Research Title">
+<meta name="category" content="malware">
+<meta name="date" content="2026-10-08">
+<meta name="tags" content="YARA,Ghidra,MITRE,Static Analysis">
+<meta name="description" content="REPLACE: Short public description of the research.">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>REPLACE: Research Title | Vaibhav Kamdi</title>
+<link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+<header class="nav"><a class="brand" href="../../index.html"><span class="brand-mark">VK</span>/ RESEARCH</a><nav class="nav-links"><a href="../">ALL RESEARCH</a><a href="../../index.html">PORTFOLIO</a></nav></header>
+
+<main class="report">
+<header class="report-head">
+<p class="eyebrow">MALWARE ANALYSIS / REPLACE CATEGORY</p>
+<h1 class="report-title">REPLACE: <em>Research Title</em></h1>
+<p class="lead">REPLACE: Executive summary visible at the top of the report.</p>
+<div class="report-meta"><span class="meta">STATIC ANALYSIS</span><span class="meta">DYNAMIC ANALYSIS</span><span class="meta">MITRE ATT&CK</span><span class="meta">DETECTION</span></div>
+</header>
+
+<div class="report-layout">
+<article class="report-body">
+<div class="notice">This report is a public/sanitized example. Do not publish customer information, credentials, private IPs, confidential IOCs or other sensitive data.</div>
+
+<h2>01 / Executive Summary</h2>
+<p>Describe what was analyzed, why it was interesting, the key findings and the confidence level.</p>
+
+<h2>02 / Sample Information</h2>
+<table class="ioc"><tr><th>Property</th><th>Value</th></tr><tr><td>Type</td><td>DLL / EXE / Script</td></tr><tr><td>SHA-256</td><td>REPLACE_ME</td></tr><tr><td>Size</td><td>REPLACE_ME</td></tr><tr><td>Environment</td><td>Isolated analysis VM</td></tr></table>
+
+<h2>03 / Static Analysis</h2>
+<h3>PE / File Structure</h3><p>Document headers, architecture, sections, entry point, imports/exports, compile information and entropy.</p>
+<h3>Strings / FLOSS</h3><p>Document suspicious strings, URLs, registry keys, commands and other relevant artifacts.</p>
+<h3>YARA / capa</h3><p>Document rules, capabilities and confidence.</p>
+
+<h2>04 / Dynamic Analysis</h2>
+<p>Document process creation, child processes, file writes, registry changes, persistence, network activity and other observed behaviors.</p>
+
+<h2>05 / MITRE ATT&CK Mapping</h2>
+<table class="ioc"><tr><th>Technique</th><th>Evidence</th></tr><tr><td>T1059</td><td>REPLACE_WITH_EVIDENCE</td></tr><tr><td>T1105</td><td>REPLACE_WITH_EVIDENCE</td></tr></table>
+
+<h2>06 / IOCs</h2>
+<table class="ioc"><tr><th>Type</th><th>Value</th></tr><tr><td>SHA256</td><td>REPLACE_ME</td></tr><tr><td>Domain</td><td>REPLACE_ME</td></tr><tr><td>IP</td><td>REPLACE_ME</td></tr></table>
+
+<h2>07 / Detection</h2>
+<h3>YARA</h3>
+<pre>rule example_public_rule {
+  meta:
+    author = "Vaibhav Kamdi"
+    purpose = "Public research example"
+  strings:
+    $s1 = "REPLACE_ME"
+  condition:
+    uint16(0) == 0x5A4D and $s1
+}</pre>
+<h3>Sigma / SPL</h3>
+<pre>REPLACE_WITH_SANITIZED_DETECTION_QUERY</pre>
+
+<h2>08 / Conclusion</h2>
+<p>Summarize the behavior, confidence, detection coverage and recommended defensive actions.</p>
+</article>
+
+<aside class="report-side">
+<h3>REPORT NAVIGATION</h3>
+<a href="#top">Executive Summary</a>
+<a href="#top">Static Analysis</a>
+<a href="#top">Dynamic Analysis</a>
+<a href="#top">MITRE ATT&CK</a>
+<a href="#top">IOCs</a>
+<a href="#top">Detection</a>
+</aside>
+</div>
+</main>
+<footer><span>© <span id="year"></span> Vaibhav Kamdi</span><span>Public research · Sanitized data</span></footer>
+<script src="../../assets/js/app.js"></script>
+</body></html>
