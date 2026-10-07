@@ -1,490 +1,290 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  >
 
   <title>Research Portal | Vaibhav Kamdi</title>
-  <meta name="description" content="Security research by Vaibhav Kamdi — malware analysis, threat hunting, detection engineering and threat intelligence.">
 
-  <!-- GitHub Pages project-root support -->
+  <meta
+    name="description"
+    content="Cybersecurity research portal."
+  >
+
   <base href="/vaibhavkamdi/">
 
-  <!-- Your existing site stylesheet -->
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link
+    rel="stylesheet"
+    href="assets/css/style.css"
+  >
 
-  <style>
-    /* =========================================================
-       RESEARCH PORTAL — SUBTLE CYBER TELEMETRY BACKGROUND
-       Intentionally low-key so the research content stays primary.
-       ========================================================= */
-
-    .cyber-rain {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.075;
-      user-select: none;
-    }
-
-    .cyber-rain::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(
-          circle at 50% 35%,
-          transparent 0%,
-          rgba(4, 10, 13, 0.12) 45%,
-          rgba(4, 10, 13, 0.38) 100%
-        );
-    }
-
-    .cyber-rain span {
-      position: absolute;
-      top: -240px;
-      display: block;
-
-      color: #48e6ff;
-      font-family:
-        "SFMono-Regular",
-        "Cascadia Code",
-        Consolas,
-        "Liberation Mono",
-        monospace;
-
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 1.2px;
-      line-height: 1.5;
-
-      writing-mode: vertical-rl;
-      text-orientation: mixed;
-      white-space: nowrap;
-
-      text-shadow:
-        0 0 5px rgba(72, 230, 255, 0.45),
-        0 0 12px rgba(72, 230, 255, 0.16);
-
-      animation: researchCyberFall linear infinite;
-      will-change: transform, opacity;
-    }
-
-    .cyber-rain span:nth-child(3n) {
-      color: #65f29b;
-      text-shadow:
-        0 0 5px rgba(101, 242, 155, 0.42),
-        0 0 12px rgba(101, 242, 155, 0.15);
-    }
-
-    .cyber-rain span:nth-child(5n) {
-      color: #9caeb8;
-      text-shadow: none;
-    }
-
-    .cyber-rain span:nth-child(1)  { left: 3%;  animation-delay: -4s;  animation-duration: 22s; }
-    .cyber-rain span:nth-child(2)  { left: 8%;  animation-delay: -15s; animation-duration: 28s; }
-    .cyber-rain span:nth-child(3)  { left: 14%; animation-delay: -9s;  animation-duration: 24s; }
-    .cyber-rain span:nth-child(4)  { left: 20%; animation-delay: -19s; animation-duration: 30s; }
-    .cyber-rain span:nth-child(5)  { left: 27%; animation-delay: -7s;  animation-duration: 26s; }
-    .cyber-rain span:nth-child(6)  { left: 33%; animation-delay: -21s; animation-duration: 32s; }
-    .cyber-rain span:nth-child(7)  { left: 39%; animation-delay: -11s; animation-duration: 25s; }
-    .cyber-rain span:nth-child(8)  { left: 45%; animation-delay: -24s; animation-duration: 31s; }
-    .cyber-rain span:nth-child(9)  { left: 51%; animation-delay: -6s;  animation-duration: 27s; }
-    .cyber-rain span:nth-child(10) { left: 57%; animation-delay: -18s; animation-duration: 29s; }
-    .cyber-rain span:nth-child(11) { left: 63%; animation-delay: -13s; animation-duration: 24s; }
-    .cyber-rain span:nth-child(12) { left: 69%; animation-delay: -26s; animation-duration: 33s; }
-    .cyber-rain span:nth-child(13) { left: 75%; animation-delay: -8s;  animation-duration: 26s; }
-    .cyber-rain span:nth-child(14) { left: 81%; animation-delay: -22s; animation-duration: 30s; }
-    .cyber-rain span:nth-child(15) { left: 87%; animation-delay: -12s; animation-duration: 25s; }
-    .cyber-rain span:nth-child(16) { left: 92%; animation-delay: -27s; animation-duration: 32s; }
-    .cyber-rain span:nth-child(17) { left: 96%; animation-delay: -17s; animation-duration: 23s; }
-    .cyber-rain span:nth-child(18) { left: 11%; animation-delay: -29s; animation-duration: 34s; }
-    .cyber-rain span:nth-child(19) { left: 48%; animation-delay: -25s; animation-duration: 29s; }
-    .cyber-rain span:nth-child(20) { left: 72%; animation-delay: -31s; animation-duration: 27s; }
-    .cyber-rain span:nth-child(21) { left: 24%; animation-delay: -20s; animation-duration: 31s; }
-
-    @keyframes researchCyberFall {
-      0% {
-        transform: translate3d(0, -240px, 0);
-        opacity: 0;
-      }
-
-      12% {
-        opacity: 0.75;
-      }
-
-      78% {
-        opacity: 0.42;
-      }
-
-      100% {
-        transform: translate3d(0, 120vh, 0);
-        opacity: 0;
-      }
-    }
-
-    /* Keep every real UI element above the decorative layer. */
-    .topbar,
-    main,
-    footer {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Slightly strengthen readability over the moving layer. */
-    .research-hero,
-    .research-controls,
-    .research-results,
-    .research-card {
-      position: relative;
-      z-index: 2;
-    }
-
-    @media (max-width: 700px) {
-      .cyber-rain {
-        opacity: 0.045;
-      }
-
-      .cyber-rain span {
-        font-size: 8px;
-        letter-spacing: 0.8px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .cyber-rain {
-        display: none;
-      }
-    }
-
-    @media print {
-      .cyber-rain {
-        display: none !important;
-      }
-    }
-  </style>
 </head>
 
 <body>
 
-  <!-- Decorative layer ONLY.
-       It must not appear as a normal horizontal line. -->
-  <div class="cyber-rain" aria-hidden="true">
-    <span>MITRE::T1059.001</span>
-    <span>IOC::ANALYSIS</span>
-    <span>YARA::MATCH</span>
-    <span>SIEM::QUERY</span>
-    <span>EDR::ALERT</span>
-    <span>SIGMA::RULE</span>
-    <span>THREAT_HUNT</span>
-    <span>GHIDRA::RE</span>
-    <span>FLOSS::STRINGS</span>
-    <span>CAPA::TTP</span>
-    <span>ATT&amp;CK::MAPPING</span>
-    <span>SPL::INVESTIGATION</span>
-    <span>DFIR::EVIDENCE</span>
-    <span>MALWARE::TRIAGE</span>
-    <span>DNS::QUERY</span>
-    <span>TCP::SESSION</span>
-    <span>C2::BEACON</span>
-    <span>MITRE::T1566.001</span>
-    <span>MITRE::T1055</span>
-    <span>PE::HEADER</span>
-    <span>SHA256::IOC</span>
-  </div>
+<!-- =====================================================
+     SUBTLE CYBER TELEMETRY BACKGROUND
 
-  <!-- =======================================================
-       NAVIGATION
-       ======================================================= -->
-  <header class="topbar">
-    <a class="brand" href="index.html" aria-label="Vaibhav Kamdi home">
-      <span class="brand-mark">VK</span>
-      <span>VAIBHAV<span class="muted">KAMDI</span></span>
+     IMPORTANT:
+     Keep these spans INSIDE this div.
+     Do not put them directly inside <body>.
+     ===================================================== -->
+
+<div class="cyber-rain" aria-hidden="true">
+
+  <span>MITRE::T1059.001</span>
+
+  <span>IOC::ANALYSIS</span>
+
+  <span>YARA::MATCH</span>
+
+  <span>SIEM::QUERY</span>
+
+  <span>EDR::ALERT</span>
+
+  <span>SIGMA::RULE</span>
+
+  <span>THREAT_HUNT</span>
+
+  <span>GHIDRA::RE</span>
+
+  <span>FLOSS::STRINGS</span>
+
+  <span>CAPA::TTP</span>
+
+  <span>ATT&amp;CK::MAPPING</span>
+
+  <span>SPL::INVESTIGATION</span>
+
+  <span>DFIR::EVIDENCE</span>
+
+  <span>MALWARE::TRIAGE</span>
+
+  <span>DNS::QUERY</span>
+
+  <span>TCP::SESSION</span>
+
+  <span>C2::BEACON</span>
+
+  <span>MITRE::T1566.001</span>
+
+  <span>MITRE::T1055</span>
+
+  <span>PE::HEADER</span>
+
+  <span>SHA256::IOC</span>
+
+</div>
+
+
+<!-- =====================================================
+     NAVIGATION
+     ===================================================== -->
+
+<header class="topbar">
+
+  <a
+    class="brand"
+    href="index.html"
+  >
+
+    <span class="brand-mark">
+      VK
+    </span>
+
+    <span>
+      VAIBHAV<span class="muted">KAMDI</span>
+    </span>
+
+  </a>
+
+
+  <nav>
+
+    <a href="index.html">
+      Home
     </a>
 
-    <nav aria-label="Primary navigation">
-      <a href="index.html">Home</a>
-      <a class="active" href="research/">Research</a>
-      <a href="resume.html">Resume</a>
-    </nav>
-  </header>
+    <a
+      class="active"
+      href="research/"
+    >
+      Research
+    </a>
+
+    <a href="resume.html">
+      Resume
+    </a>
+
+  </nav>
+
+</header>
 
 
-  <!-- =======================================================
-       RESEARCH PORTAL
-       ======================================================= -->
-  <main class="container">
+<!-- =====================================================
+     RESEARCH HERO
+     ===================================================== -->
 
-    <section class="research-hero">
-      <div class="eyebrow">
-        <span class="status-dot" aria-hidden="true"></span>
-        SECURITY RESEARCH PORTAL
-      </div>
+<main>
 
-      <h1>
-        Malware analysis.<br>
-        Threat hunts.<br>
-        Detection research.
-      </h1>
+  <section class="research-hero container">
 
-      <p class="lead">
-        A continuously published collection of technical investigations,
-        hunting methodologies, IOCs, ATT&amp;CK mappings and detection content.
-      </p>
-    </section>
+    <div class="eyebrow">
 
+      <span class="dot"></span>
 
-    <!-- =====================================================
-         FILTERS + SEARCH
-         ===================================================== -->
-    <section class="research-controls" aria-label="Research filters">
+      SECURITY RESEARCH PORTAL
 
-      <div class="filter-row">
-
-        <div class="filters" role="group" aria-label="Research categories">
-          <button class="filter active" data-category="all">ALL</button>
-          <button class="filter" data-category="malware">MALWARE</button>
-          <button class="filter" data-category="threat-hunting">THREAT HUNTING</button>
-          <button class="filter" data-category="detection">DETECTION</button>
-          <button class="filter" data-category="threat-intelligence">THREAT INTEL</button>
-        </div>
-
-        <label class="search-box">
-          <span class="sr-only">Search research</span>
-          <input
-            id="researchSearch"
-            type="search"
-            placeholder="Search research, tags, IOCs..."
-            autocomplete="off"
-          >
-        </label>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         RESULTS
-         ===================================================== -->
-    <section class="research-results" aria-live="polite">
-
-      <div class="result-count" id="resultCount">
-        Loading research...
-      </div>
-
-      <div class="research-grid" id="researchGrid">
-        <!-- Cards are populated automatically from research/research.json -->
-      </div>
-
-      <div class="empty-state" id="emptyState" hidden>
-        <strong>No matching research found.</strong>
-        <span>Try another category, keyword, IOC or tag.</span>
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <footer>
-    <div class="container footer-inner">
-      <span>© Vaibhav Kamdi</span>
-      <span>Security Research · Threat Hunting · Detection Engineering</span>
     </div>
-  </footer>
 
 
-  <!-- =======================================================
-       RESEARCH INDEXER
-       Reads research/research.json generated by GitHub Actions.
-       ======================================================= -->
-  <script>
-    const BASE = "/vaibhavkamdi/";
-    const CATALOG = BASE + "research/research.json";
+    <h1>
 
-    const grid = document.getElementById("researchGrid");
-    const count = document.getElementById("resultCount");
-    const empty = document.getElementById("emptyState");
-    const search = document.getElementById("researchSearch");
-    const filters = [...document.querySelectorAll(".filter")];
+      Malware analysis.<br>
 
-    let reports = [];
-    let activeCategory = "all";
+      Threat hunts.<br>
 
-    function escapeHTML(value) {
-      return String(value ?? "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-    }
+      Detection research.
 
-    function normalize(value) {
-      return String(value ?? "").toLowerCase().trim();
-    }
+    </h1>
 
-    function getTags(report) {
-      if (Array.isArray(report.tags)) return report.tags;
-      if (typeof report.tags === "string") {
-        return report.tags
-          .split(",")
-          .map(x => x.trim())
-          .filter(Boolean);
-      }
-      return [];
-    }
 
-    function categoryLabel(category) {
-      const labels = {
-        malware: "MALWARE",
-        "threat-hunting": "THREAT HUNTING",
-        detection: "DETECTION",
-        "threat-intelligence": "THREAT INTEL"
-      };
+    <p>
 
-      return labels[category] ||
-        String(category || "RESEARCH")
-          .replace(/-/g, " ")
-          .toUpperCase();
-    }
+      A continuously published collection of technical
+      investigations, hunting methodologies, IOCs,
+      ATT&amp;CK mappings and detection content.
 
-    function reportMatches(report) {
-      const category = normalize(report.category);
-      const query = normalize(search.value);
+    </p>
 
-      const categoryMatch =
-        activeCategory === "all" ||
-        category === activeCategory;
+  </section>
 
-      if (!categoryMatch) return false;
 
-      if (!query) return true;
+  <!-- ===================================================
+       RESEARCH CATALOG
+       =================================================== -->
 
-      const searchable = [
-        report.title,
-        report.description,
-        report.date,
-        report.category,
-        ...getTags(report),
-        ...(Array.isArray(report.iocs) ? report.iocs : [])
-      ]
-        .map(normalize)
-        .join(" ");
+  <section class="container catalog">
 
-      return searchable.includes(query);
-    }
+    <div class="catalog-toolbar">
 
-    function render() {
-      const visible = reports.filter(reportMatches);
 
-      grid.innerHTML = "";
+      <!-- CATEGORY FILTERS -->
 
-      count.textContent =
-        `${visible.length} matching report${visible.length === 1 ? "" : "s"} · ${reports.length} indexed`;
+      <div class="filters">
 
-      empty.hidden = visible.length !== 0;
+        <button
+          class="filter active"
+          data-category="all"
+        >
+          ALL
+        </button>
 
-      visible.forEach(report => {
-        const article = document.createElement("article");
-        article.className = "research-card";
 
-        const tags = getTags(report)
-          .slice(0, 5)
-          .map(tag => `<span>${escapeHTML(tag)}</span>`)
-          .join("");
+        <button
+          class="filter"
+          data-category="malware"
+        >
+          MALWARE
+        </button>
 
-        const category = normalize(report.category) || "research";
 
-        article.innerHTML = `
-          <div class="card-meta">
-            <span class="card-category">${escapeHTML(categoryLabel(category))}</span>
-            ${report.date ? `<span>${escapeHTML(report.date)}</span>` : ""}
-          </div>
+        <button
+          class="filter"
+          data-category="threat-hunting"
+        >
+          THREAT HUNTING
+        </button>
 
-          <h2>
-            <a href="${BASE}${escapeHTML(String(report.path || "").replace(/^\\//, ""))}">
-              ${escapeHTML(report.title || "Untitled Research")}
-            </a>
-          </h2>
 
-          <p>
-            ${escapeHTML(
-              report.description ||
-              "Technical security research, analysis and detection content."
-            )}
-          </p>
+        <button
+          class="filter"
+          data-category="detection"
+        >
+          DETECTION
+        </button>
 
-          ${tags ? `<div class="card-tags">${tags}</div>` : ""}
-        `;
 
-        grid.appendChild(article);
-      });
-    }
+        <button
+          class="filter"
+          data-category="threat-intelligence"
+        >
+          THREAT INTEL
+        </button>
 
-    async function loadResearch() {
-      try {
-        const response = await fetch(CATALOG, {
-          cache: "no-store"
-        });
+      </div>
 
-        if (!response.ok) {
-          throw new Error(`HTTP ${response.status}`);
-        }
 
-        const data = await response.json();
+      <!-- SEARCH -->
 
-        reports = Array.isArray(data)
-          ? data
-          : Array.isArray(data.research)
-            ? data.research
-            : Array.isArray(data.reports)
-              ? data.reports
-              : [];
+      <input
+        id="research-search"
+        class="search"
+        type="search"
+        placeholder="Search research, tags, IOCs..."
+        autocomplete="off"
+        aria-label="Search research"
+      >
 
-        render();
+    </div>
 
-      } catch (error) {
-        console.error("Research catalog error:", error);
 
-        reports = [];
+    <!-- CATALOG STATUS -->
 
-        count.textContent = "Research catalog unavailable";
+    <div
+      id="catalog-status"
+      class="catalog-status"
+    >
+      Initializing research catalog…
+    </div>
 
-        grid.innerHTML = `
-          <div class="empty-state">
-            <strong>Unable to load research.</strong>
-            <span>
-              Please check that <code>research/research.json</code>
-              has been generated by GitHub Actions.
-            </span>
-          </div>
-        `;
-      }
-    }
 
-    filters.forEach(button => {
-      button.addEventListener("click", () => {
-        filters.forEach(item => item.classList.remove("active"));
+    <!-- DYNAMIC RESEARCH CARDS -->
 
-        button.classList.add("active");
+    <div
+      id="research-grid"
+      class="research-grid"
+    >
+    </div>
 
-        activeCategory = normalize(button.dataset.category);
+  </section>
 
-        render();
-      });
-    });
+</main>
 
-    search.addEventListener("input", render);
 
-    loadResearch();
-  </script>
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer>
+
+  <div class="container footer-inner">
+
+    <span>
+      © 2026 Vaibhav Kamdi
+    </span>
+
+    <span>
+      Public research only · No client-confidential data
+    </span>
+
+  </div>
+
+</footer>
+
+
+<!-- =====================================================
+     EXISTING SITE JAVASCRIPT
+     ===================================================== -->
+
+<script src="assets/js/app.js"></script>
 
 </body>
+
 </html>
