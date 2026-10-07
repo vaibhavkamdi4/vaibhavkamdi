@@ -62,5 +62,104 @@ $ status
 
 <footer><div class="container footer-inner"><span>© 2026 Vaibhav Kamdi</span><span>Public research only · No client-confidential data</span></div></footer>
 <script src="assets/js/app.js"></script>
+
+<script>
+const cyberWords = [
+    "MITRE",
+    "ATT&CK",
+    "YARA",
+    "SIGMA",
+    "SIEM",
+    "EDR",
+    "IOC",
+    "T1059",
+    "T1566",
+    "T1055",
+    "SPL",
+    "KQL",
+    "MALWARE",
+    "THREAT",
+    "HUNT",
+    "DFIR",
+    "SOC",
+    "IR",
+    "APT",
+    "PE",
+    "DLL",
+    "EXE",
+    "C2",
+    "DNS",
+    "HTTP",
+    "TCP",
+    "FLOSS",
+    "CAPA",
+    "GHIDRA",
+    "REMNUX",
+    "PYTHON",
+    "DETECTION",
+    "INTELLIGENCE",
+    "FORENSICS"
+];
+
+const fallingContainer = document.getElementById("falling-code");
+
+function createCodeStream() {
+
+    const stream = document.createElement("div");
+
+    stream.className = "code-stream";
+
+    if (Math.random() > 0.55) {
+        stream.classList.add("green");
+    }
+
+    // Build a long stream of cybersecurity terms
+    let content = "";
+
+    for (let i = 0; i < 18; i++) {
+
+        const word =
+            cyberWords[
+                Math.floor(Math.random() * cyberWords.length)
+            ];
+
+        content += word + "  ";
+
+    }
+
+    stream.textContent = content;
+
+    // Random horizontal position
+    stream.style.left =
+        Math.random() * 100 + "%";
+
+    // Random animation duration
+    const duration =
+        12 + Math.random() * 18;
+
+    stream.style.animationDuration =
+        duration + "s";
+
+    // Random delay
+    stream.style.animationDelay =
+        -(Math.random() * duration) + "s";
+
+    // Slightly different font size
+    stream.style.fontSize =
+        (9 + Math.random() * 5) + "px";
+
+    fallingContainer.appendChild(stream);
+}
+
+
+// Create background streams
+const streamCount =
+    window.innerWidth < 700 ? 18 : 35;
+
+for (let i = 0; i < streamCount; i++) {
+    createCodeStream();
+}
+</script>
+  
 </body>
 </html>
