@@ -6,5 +6,6 @@
     "tags": ["PE", "DLL", "Static Analysis", "MITRE ATT&CK"],
     "description": "Example research entry. Replace or remove this sample report when publishing your own analysis.",
     "url": "research/malware/suspicious-dll-analysis.html"
+    "url": "research/malware/universal-malware-analysis-framework.html"
   }
 ]
