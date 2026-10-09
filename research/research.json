@@ -14,6 +14,6 @@
       "macOS"
     ],
     "description": "A repeatable, evidence-driven methodology for analysing suspicious files across Windows, Android, Linux, and macOS, from triage through behavioural validation and detection.",
-    "url": "research/malware/universal-malware-analysis-framework.html"
+    "url": "/research/malware/universal-malware-analysis-framework.html"
   }
 ]
