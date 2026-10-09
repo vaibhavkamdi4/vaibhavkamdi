@@ -1,11 +1,18 @@
-[
-  {
-    "title": "Suspicious DLL Analysis — Template Report",
+{
+    "title": "A Universal Malware Analysis Framework: Pattern, Behaviour, Observation & Detection",
     "category": "malware",
-    "date": "2026-10-08",
-    "tags": ["PE", "DLL", "Static Analysis", "MITRE ATT&CK"],
-    "description": "Example research entry. Replace or remove this sample report when publishing your own analysis.",
-    "url": "research/malware/suspicious-dll-analysis.html"
+    "date": "2026-10-10",
+    "tags": [
+      "Malware Analysis",
+      "Threat Hunting",
+      "DFIR",
+      "Detection Engineering",
+      "Windows",
+      "Android",
+      "Linux",
+      "macOS"
+    ],
+    "description": "A repeatable, evidence-driven methodology for analysing suspicious files across Windows, Android, Linux, and macOS, from triage through behavioural validation and detection.",
     "url": "research/malware/universal-malware-analysis-framework.html"
   }
 ]
