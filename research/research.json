@@ -30,6 +30,6 @@
     "Detection Engineering"
   ],
   "description": "A public-safe overview of AI-assisted threat hunting, covering intelligence analysis, hunt preparation, SIEM investigation, evidence collection, and structured reporting.",
-  "url": "/research/agentic-ai-threat-hunting.html"
+  "url": "research/threat-hunting/agentic-ai-threat-hunting.html"
 }
 ]
