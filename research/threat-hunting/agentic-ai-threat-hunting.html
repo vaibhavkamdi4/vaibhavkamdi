@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Agentic AI for Threat Hunting | Vaibhav Kamdi</title>
-  <meta name="description" content="A public-safe overview of an Agentic AI-assisted threat hunting platform, from intelligence review to SIEM investigation, evidence collection, and reporting.">
+  <title>Agentic AI for Threat Hunting: From Intelligence to Evidence | Vaibhav Kamdi</title>
+  <meta name="description" content="A public-safe overview of AI-assisted threat hunting, including intelligence analysis, SIEM investigation, evidence reporting, analyst workflows, validation, and evaluation.">
   <meta name="author" content="Vaibhav Kamdi">
   <meta name="robots" content="index,follow">
   <meta name="research-title" content="Agentic AI for Threat Hunting: From Threat Intelligence to Evidence-Driven Investigation">
   <meta name="research-date" content="2026-10-17">
   <meta name="research-tags" content="Agentic AI, Threat Hunting, Threat Intelligence, Splunk, SIEM, Sigma, Detection Engineering, DFIR">
-  <meta name="research-description" content="A capability-level overview of AI-assisted automation for threat hunters, including hunt preparation, SIEM investigation, evidence, reporting, and analyst oversight.">
+  <meta name="research-description" content="A capability-level overview of AI-assisted threat hunting, its value for SOC teams, evidence-driven reporting, operational validation, and analyst oversight.">
   <link rel="stylesheet" href="/assets/css/style.css">
   <style>
     :root{color-scheme:dark}
@@ -83,7 +83,7 @@
       </section>
 
       <section id="architecture">
-        <h2>4. Public-safe architecture view</h2>
+        <h2>4. Architecture view</h2>
         <p>The diagram communicates the platform's purpose and major capability areas without exposing internal implementation details or the way individual components are orchestrated.</p>
         <div class="ai-diagram" role="img" aria-label="Threat intelligence and hunt inputs flow to AI-assisted analysis, then SIEM investigation, then evidence and reporting. Human validation applies throughout.">
           <div class="ai-node"><strong>Threat Intelligence &amp; Hunt Inputs</strong><span>Reports, indicators, hypotheses</span></div>
@@ -118,22 +118,76 @@
         </div>
       </section>
 
+      <section id="hunter-value">
+        <h2>7. Where this can help threat hunters</h2>
+        <p>The value of an AI-assisted workflow is not simply generating more queries. It is helping the analyst move between intelligence, a testable hypothesis, available telemetry, and reviewable evidence with less repetitive manual work.</p>
+        <div class="ai-cards">
+          <div class="ai-card"><h3>Turn intelligence into a starting point</h3><p>Long adversary reports can be difficult to operationalise quickly. Structured summaries and IOC candidates help an analyst identify promising leads to validate.</p></div>
+          <div class="ai-card"><h3>Prepare hunts more consistently</h3><p>Candidate queries and detection rules can provide a starting point for investigation, while the analyst checks syntax, field names, data availability, and coverage.</p></div>
+          <div class="ai-card"><h3>Make results easier to review</h3><p>Keeping the executed query, returned results, search context, and evidence together can make it easier for another analyst to understand what was searched and what was observed.</p></div>
+          <div class="ai-card"><h3>Improve handoffs and documentation</h3><p>A structured report can help communicate findings between hunters, SOC analysts, detection engineers, and incident responders without requiring everyone to reconstruct the investigation from scratch.</p></div>
+        </div>
+        <div class="ai-callout"><p><strong>Practical example:</strong> An analyst reviews an adversary report, identifies a domain and a behaviour worth investigating, prepares a candidate SIEM query, runs it against the available telemetry, and reviews the results. The report can preserve the query, observed results, and screenshot evidence for follow-up. The analyst remains responsible for deciding what the evidence means.</p></div>
+      </section>
+
+      <section id="report-value">
+        <h2>8. What an investigation report should help answer</h2>
+        <p>A useful report should make it easier to answer practical review questions, not merely package data into a PDF.</p>
+        <div class="ai-table-wrap"><table>
+          <thead><tr><th>Review question</th><th>Evidence to look for</th><th>Important limitation</th></tr></thead>
+          <tbody>
+            <tr><td>What was investigated?</td><td>Hunt summary, hypothesis where supplied, executed query, and search context.</td><td>A summary should not claim more than the underlying evidence supports.</td></tr>
+            <tr><td>Which indicators were considered?</td><td>IOC candidates and their types, with relevant context where available.</td><td>An extracted indicator is not automatically malicious or confirmed in the environment.</td></tr>
+            <tr><td>What did the SIEM return?</td><td>Result count and returned event data from the executed search.</td><td>Results depend on query logic, permissions, data-source coverage, and the selected time range.</td></tr>
+            <tr><td>Can another analyst review the work?</td><td>Query, execution details, screenshot evidence, and report timestamp where available.</td><td>A screenshot is supporting evidence; it does not replace raw events or prove that all relevant telemetry was available.</td></tr>
+          </tbody>
+        </table></div>
+        <p>Reports are most useful when they distinguish observed facts, analyst interpretation, and unresolved questions. If the evidence is incomplete, the report should say so rather than imply certainty.</p>
+      </section>
+
+      <section id="operational-use">
+        <h2>9. Integrating automation into a real SOC workflow</h2>
+        <p>AI-assisted hunting should be introduced as an analyst-support capability, with clear checks before generated content is used operationally.</p>
+        <ol>
+          <li><strong>Review the input:</strong> confirm that the intelligence source and extracted indicators are relevant to the hunt.</li>
+          <li><strong>Validate before execution:</strong> review the query, fields, index or data source, time window, permissions, and expected search cost.</li>
+          <li><strong>Interpret the output:</strong> assess the events in context and correlate with other evidence where appropriate.</li>
+          <li><strong>Preserve the investigation:</strong> retain the query, relevant results, and evidence according to the organisation's policies.</li>
+          <li><strong>Record uncertainty:</strong> document missing telemetry, query limitations, and findings that require further investigation.</li>
+        </ol>
+        <p>For production use, teams should also consider access control, sensitive-data handling, auditability, retention requirements, and safeguards against executing unreviewed or overly broad queries.</p>
+      </section>
+
+      <section id="evaluation">
+        <h2>10. How to evaluate whether it helps</h2>
+        <p>Automation should be assessed by the quality of the investigation, not just by how quickly it generates output. Useful measures to evaluate include:</p>
+        <ul>
+          <li>Time required to move from a threat report to a reviewed hunting query.</li>
+          <li>Percentage of generated queries that pass analyst review with minimal changes.</li>
+          <li>Accuracy and usefulness of extracted IOC candidates.</li>
+          <li>Completeness of the report and evidence associated with each execution.</li>
+          <li>False-positive rate, missed detections, and analyst effort required to validate findings.</li>
+          <li>Whether another analyst can reproduce or understand the investigation from its recorded context.</li>
+        </ul>
+        <p>These are evaluation criteria, not performance claims. Results should be measured against a baseline using representative data and analyst feedback.</p>
+      </section>
+
       <section id="responsible-ai">
-        <h2>7. Responsible use of AI in threat hunting</h2>
+        <h2>11. Responsible use of AI in threat hunting</h2>
         <p>AI-generated outputs can contain incorrect assumptions, unsuitable queries, incomplete IOC extraction, or false-positive detections. Before operational use, security teams should validate:</p>
         <ul><li>Query syntax and compatibility with their SIEM environment.</li><li>Data-source coverage and time-range assumptions.</li><li>IOC accuracy and threat-intelligence context.</li><li>Detection logic, false-positive behaviour, and performance impact.</li><li>Evidence integrity, access controls, and sensitive-data handling.</li></ul>
         <div class="ai-callout warning"><p><strong>Operational principle:</strong> Automation should support the analyst's reasoning—not turn unverified model output into a confirmed security finding.</p></div>
       </section>
 
       <section id="scope">
-        <h2>8. Current scope and future direction</h2>
+        <h2>12. Current scope and future direction</h2>
         <p>The current demonstration focuses on intelligence analysis, query and detection assistance, Splunk-based hunt execution, screenshot evidence, and PDF investigation reporting.</p>
         <p>Further opportunities include richer IOC enrichment, improved result correlation, stronger evidence provenance, additional SIEM integrations, and validation workflows for generated detection logic.</p>
         <p>These areas represent potential directions for future development rather than claims about capabilities that have already been implemented.</p>
       </section>
 
       <section id="conclusion">
-        <h2>9. Conclusion</h2>
+        <h2>13. Conclusion</h2>
         <p>Effective threat hunting depends on good hypotheses, reliable telemetry, repeatable investigations, and evidence that can be reviewed.</p>
         <p>Agentic AI can help streamline parts of this process when paired with controlled execution, clear evidence, and analyst oversight.</p>
         <p>The goal is straightforward: reduce repetitive investigation work while helping threat hunters spend more time understanding adversary behaviour and validating security findings.</p>
