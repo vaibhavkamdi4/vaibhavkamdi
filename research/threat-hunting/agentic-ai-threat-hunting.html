@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agentic AI for Threat Hunting | Vaibhav Kamdi</title>
+  <meta name="description" content="A public-safe overview of an Agentic AI-assisted threat hunting platform, from intelligence review to SIEM investigation, evidence collection, and reporting.">
+  <meta name="author" content="Vaibhav Kamdi">
+  <meta name="robots" content="index,follow">
+  <meta name="research-title" content="Agentic AI for Threat Hunting: From Threat Intelligence to Evidence-Driven Investigation">
+  <meta name="research-date" content="2026-10-17">
+  <meta name="research-tags" content="Agentic AI, Threat Hunting, Threat Intelligence, Splunk, SIEM, Sigma, Detection Engineering, DFIR">
+  <meta name="research-description" content="A capability-level overview of AI-assisted automation for threat hunters, including hunt preparation, SIEM investigation, evidence, reporting, and analyst oversight.">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    :root{color-scheme:dark}
+    .ai-page{position:relative;z-index:2}.ai-shell{width:min(1120px,calc(100% - 40px));margin:0 auto}
+    .ai-hero{padding:68px 0 34px}.ai-kicker{display:inline-flex;align-items:center;gap:10px;color:var(--accent,#48e6ff);font:600 .78rem/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.13em;text-transform:uppercase}
+    .ai-kicker:before{content:"";width:8px;height:8px;border-radius:50%;background:#65f29b;box-shadow:0 0 12px rgba(101,242,155,.55)}
+    .ai-hero h1{max-width:1000px;margin:18px 0;font-size:clamp(2.1rem,5vw,4.2rem);line-height:1.06;letter-spacing:-.04em}.ai-hero h1 span{color:var(--accent,#48e6ff)}
+    .ai-deck{max-width:850px;color:var(--muted,#a6b2c2);font-size:clamp(1.02rem,2vw,1.2rem);line-height:1.8}
+    .ai-meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:22px;color:var(--muted,#a6b2c2);font:.84rem/1.6 ui-monospace,SFMono-Regular,Menlo,monospace}.ai-meta span:before{content:"/ ";color:#65f29b}
+    .ai-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.ai-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 15px;border:1px solid rgba(72,230,255,.35);border-radius:8px;color:inherit;text-decoration:none;background:rgba(72,230,255,.06);font-weight:650;font-size:.9rem;cursor:pointer}.ai-btn:hover{border-color:#48e6ff;background:rgba(72,230,255,.12)}
+    .ai-layout{display:grid;grid-template-columns:minmax(0,1fr);padding:18px 0 72px;min-width:0}.ai-content{min-width:0;max-width:920px}
+    .ai-content section{scroll-margin-top:24px;margin:0 0 42px}.ai-content h2{margin:0 0 15px;font-size:clamp(1.5rem,3vw,2rem);line-height:1.22;letter-spacing:-.025em}.ai-content h3{margin:25px 0 9px;font-size:1.13rem}
+    .ai-content p,.ai-content li{color:var(--body-text,#c8d1dc);line-height:1.82}.ai-content p{margin:0 0 15px}.ai-content ul,.ai-content ol{padding-left:1.35rem;margin:10px 0 18px}.ai-content li{padding-left:3px;margin:6px 0}.ai-content strong{color:var(--text,#f1f5f9)}
+    .ai-callout{margin:22px 0;padding:17px 19px;border-left:3px solid #48e6ff;border-radius:0 10px 10px 0;background:rgba(72,230,255,.055)}.ai-callout p:last-child{margin-bottom:0}.ai-callout.warning{border-left-color:#f4bd50;background:rgba(244,189,80,.055)}
+    .ai-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:20px 0}.ai-card{border:1px solid var(--border,rgba(255,255,255,.12));border-radius:11px;padding:17px;background:rgba(255,255,255,.025)}.ai-card h3{margin:0 0 8px;color:var(--text,#f1f5f9)}.ai-card p{margin:0;font-size:.95rem}
+    .ai-diagram{margin:22px 0;padding:20px 16px;border:1px solid var(--border,rgba(255,255,255,.14));border-radius:14px;background:rgba(5,9,14,.82);text-align:center}.ai-node{border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:16px 14px;background:rgba(255,255,255,.025)}.ai-node strong{display:block;margin-bottom:5px}.ai-node span{display:block;color:var(--muted,#a6b2c2);font-size:.91rem;line-height:1.6}.ai-arrow{padding:8px 0;color:#c8d1dc;font-size:1.3rem;line-height:1}
+    .ai-output-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.ai-output-row .ai-node{background:rgba(255,255,255,.10)}.ai-human{display:flex;justify-content:center;align-items:center;gap:10px;margin-top:16px;padding-top:17px;border-top:1px solid rgba(255,255,255,.16);text-align:left}.ai-human .shield{color:#35e59a;font-size:1.35rem}.ai-human strong{display:block}.ai-human .human-copy{color:var(--muted,#a6b2c2);font-size:.91rem;line-height:1.6}
+    .ai-table-wrap{overflow-x:auto;margin:18px 0 22px;border:1px solid var(--border,rgba(255,255,255,.12));border-radius:10px}.ai-content table{width:100%;border-collapse:collapse;min-width:600px}.ai-content th,.ai-content td{padding:12px 13px;border-bottom:1px solid var(--border,rgba(255,255,255,.1));text-align:left;vertical-align:top;line-height:1.65;font-size:.92rem}.ai-content th{color:#48e6ff;background:rgba(72,230,255,.055)}.ai-content tr:last-child td{border-bottom:0}
+    .ai-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.ai-tag{border:1px solid rgba(72,230,255,.23);border-radius:999px;padding:5px 9px;color:#a8eefa;font:.75rem/1.4 ui-monospace,monospace}
+    .ai-end{margin-top:28px;padding:22px;border:1px solid var(--border,rgba(255,255,255,.12));border-radius:12px;background:rgba(255,255,255,.025)}.ai-end p:last-child{margin-bottom:0}
+    .ai-progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:99;background:linear-gradient(90deg,#48e6ff,#65f29b)}.ai-top{position:fixed;right:18px;bottom:18px;z-index:8;opacity:0;pointer-events:none;transition:opacity .2s}.ai-top.visible{opacity:1;pointer-events:auto}.ai-footer{padding:0 0 35px;color:var(--muted,#a6b2c2);font-size:.82rem}
+    @media(max-width:600px){.ai-shell{width:min(100% - 28px,1120px)}.ai-hero{padding-top:44px}.ai-cards,.ai-output-row{grid-template-columns:1fr}.ai-diagram{padding:15px 10px}.ai-human{align-items:flex-start}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+    @media print{.topbar,.ai-actions,.ai-progress,.ai-top,footer{display:none!important}body{background:#fff!important;color:#111!important}.ai-content p,.ai-content li,.ai-meta,.ai-deck{color:#222!important}.ai-layout{display:block}.ai-content section{break-inside:avoid}.ai-table-wrap{overflow:visible}.ai-content table{min-width:0}.ai-content th,.ai-content td{font-size:9pt}}
+  </style>
+</head>
+<body>
+  <div class="ai-progress" id="reading-progress" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="/"><span class="brand-mark">VK</span><span>VAIBHAV<span class="muted">KAMDI</span></span></a>
+    <nav aria-label="Main navigation"><a href="/">Home</a><a class="active" href="/research/">Research</a><a href="/resume.html">Resume</a></nav>
+  </header>
+
+  <main class="ai-page"><div class="ai-shell">
+    <header class="ai-hero">
+      <div class="ai-kicker">Threat hunting / Applied AI</div>
+      <h1>Agentic AI for Threat Hunting:<br><span>From Intelligence to Evidence</span></h1>
+      <p class="ai-deck">A public-safe overview of how AI-assisted automation can help threat hunters move from intelligence review and hunt preparation to SIEM investigation, evidence collection, and structured reporting—without exposing proprietary implementation details.</p>
+      <div class="ai-meta"><span>By Vaibhav Kamdi</span><span>17 October 2026</span><span>8–10 min read</span><span>Defensive research</span></div>
+      <div class="ai-actions"><a class="ai-btn" href="/research/">← Back to Research</a><button class="ai-btn" id="copy-link" type="button">Copy article link</button><button class="ai-btn" type="button" onclick="window.print()">Print / Save PDF</button></div>
+      <div class="ai-tags" aria-label="Article topics"><span class="ai-tag">AGENTIC AI</span><span class="ai-tag">THREAT HUNTING</span><span class="ai-tag">SIEM</span><span class="ai-tag">DETECTION ENGINEERING</span></div>
+    </header>
+
+    <div class="ai-layout"><article class="ai-content">
+      <section id="introduction">
+        <h2>1. Introduction</h2>
+        <p>Threat hunters often work across threat intelligence reports, SIEM platforms, detection rules, investigation evidence, and incident documentation. These activities require significant manual effort, especially when translating adversary intelligence into practical hunting hypotheses and repeatable investigations.</p>
+        <p>An Agentic AI-assisted Threat Hunting Platform explores how these activities can be streamlined through intelligent analysis, SIEM integration, evidence collection, and structured reporting.</p>
+        <p>The objective is not to replace the threat hunter. It is to reduce repetitive work, improve investigation consistency, and help analysts focus on validating hypotheses and interpreting security evidence.</p>
+      </section>
+
+      <section id="challenge">
+        <h2>2. The challenge for modern threat hunters</h2>
+        <p>Threat hunting involves more than searching for known indicators. Analysts must understand adversary behaviour, identify relevant telemetry, develop hypotheses, construct queries, validate results, and document their findings.</p>
+        <ul><li>Manually extracting IOCs and relevant techniques from threat intelligence reports.</li><li>Translating intelligence into practical SIEM queries and detection logic.</li><li>Repeating similar searches across investigations.</li><li>Correlating search results with threat hypotheses.</li><li>Capturing evidence for peer review and incident documentation.</li><li>Producing consistent investigation reports under time constraints.</li></ul>
+        <p>Automation can assist with these activities, provided that its outputs remain traceable and subject to analyst validation.</p>
+      </section>
+
+      <section id="overview">
+        <h2>3. Platform overview</h2>
+        <p>The platform is designed to support a threat-hunting investigation from intelligence analysis through evidence-backed reporting. At a capability level, it brings together five areas:</p>
+        <div class="ai-cards">
+          <div class="ai-card"><h3>Threat intelligence analysis</h3><p>Extracts relevant information from adversary reports, including summaries, indicators, artefacts, and potential behaviours.</p></div>
+          <div class="ai-card"><h3>Hunt preparation and detection assistance</h3><p>Helps translate available intelligence into hunting hypotheses, SIEM queries, and Sigma detection rules for analyst review.</p></div>
+          <div class="ai-card"><h3>SIEM-based investigation</h3><p>Supports the execution of hunting queries against Splunk and the review of returned telemetry.</p></div>
+          <div class="ai-card"><h3>Evidence collection</h3><p>Captures browser-based evidence to support reproducibility, investigation review, and documentation.</p></div>
+          <div class="ai-card"><h3>Investigation reporting</h3><p>Consolidates available findings, IOC candidates, executed queries, search results, and screenshot evidence into a PDF report.</p></div>
+        </div>
+        <div class="ai-callout"><p><strong>Public disclosure boundary:</strong> This overview describes capabilities and analyst-facing outcomes. It intentionally omits internal implementation details, proprietary orchestration, prompts, source code, and internal processing logic.</p></div>
+      </section>
+
+      <section id="architecture">
+        <h2>4. Public-safe architecture view</h2>
+        <p>The diagram communicates the platform's purpose and major capability areas without exposing internal implementation details or the way individual components are orchestrated.</p>
+        <div class="ai-diagram" role="img" aria-label="Threat intelligence and hunt inputs flow to AI-assisted analysis, then SIEM investigation, then evidence and reporting. Human validation applies throughout.">
+          <div class="ai-node"><strong>Threat Intelligence &amp; Hunt Inputs</strong><span>Reports, indicators, hypotheses</span></div>
+          <div class="ai-arrow" aria-hidden="true">↓</div>
+          <div class="ai-node"><strong>AI-Assisted Analysis</strong><span>Intelligence extraction and hunt preparation</span></div>
+          <div class="ai-arrow" aria-hidden="true">↓</div>
+          <div class="ai-node"><strong>SIEM Investigation</strong><span>Query execution and results review</span></div>
+          <div class="ai-arrow" aria-hidden="true">↓</div>
+          <div class="ai-output-row"><div class="ai-node"><strong>Evidence</strong><span>Screenshots and investigation artefacts</span></div><div class="ai-node"><strong>Reporting</strong><span>Structured investigation PDF</span></div></div>
+          <div class="ai-human"><span class="shield" aria-hidden="true">⬡</span><div><strong>Human validation throughout</strong><span class="human-copy">Analyst review, query validation, interpretation, and response decisions.</span></div></div>
+        </div>
+        <p><em>Illustrative capability-level view. It is not a deployment diagram and does not represent internal component boundaries or orchestration.</em></p>
+      </section>
+
+      <section id="lifecycle">
+        <h2>5. How it supports a threat-hunting investigation</h2>
+        <h3>Stage 1 — Intelligence review</h3><p>Threat intelligence provides context about adversary infrastructure, known indicators, observed behaviours, and relevant techniques. Automated extraction can help analysts identify useful information more quickly, reducing the effort required to review lengthy reports manually.</p>
+        <h3>Stage 2 — Hunt preparation</h3><p>Extracted intelligence can inform hunting hypotheses and candidate queries. The analyst should review the assumptions, data sources, query logic, and time range before executing a hunt. Generated Sigma rules should also be validated against the intended telemetry and detection requirements.</p>
+        <h3>Stage 3 — SIEM investigation</h3><p>Hunting queries are executed against available SIEM data. Returned events provide the evidence needed to assess whether the hypothesis is supported, contradicted, or remains inconclusive.</p><p>The presence of an IOC may justify further investigation, but does not independently establish malicious activity. Likewise, an empty result set does not prove that the activity never occurred.</p>
+        <h3>Stage 4 — Evidence preservation</h3><p>Investigation evidence is captured to help analysts review what was observed during a search. Evidence should be interpreted alongside the query, search window, data availability, and execution context. Screenshots support review but should not be treated as a substitute for the underlying event data.</p>
+        <h3>Stage 5 — Reporting and review</h3><p>The platform can consolidate available investigation information into a structured PDF report, including summaries, IOC candidates, queries, returned results, and screenshots. This provides a more consistent handoff between analysts and supports investigation documentation, peer review, and future reference.</p>
+      </section>
+
+      <section id="benefits">
+        <h2>6. Practical benefits for security teams</h2>
+        <div class="ai-cards">
+          <div class="ai-card"><h3>Reduced repetitive effort</h3><p>Automates parts of intelligence extraction, query preparation, evidence collection, and reporting.</p></div>
+          <div class="ai-card"><h3>More consistent investigations</h3><p>Encourages analysts to document the hypothesis, query, results, and supporting evidence in a repeatable format.</p></div>
+          <div class="ai-card"><h3>Improved reviewability</h3><p>Makes investigation artefacts easier to inspect and share with authorised team members.</p></div>
+          <div class="ai-card"><h3>Detection engineering support</h3><p>Helps analysts develop and review candidate SIEM queries and Sigma rules based on available intelligence.</p></div>
+          <div class="ai-card"><h3>Human-led decisions</h3><p>Keeps validation, contextual interpretation, escalation, and response decisions with the security analyst.</p></div>
+        </div>
+      </section>
+
+      <section id="responsible-ai">
+        <h2>7. Responsible use of AI in threat hunting</h2>
+        <p>AI-generated outputs can contain incorrect assumptions, unsuitable queries, incomplete IOC extraction, or false-positive detections. Before operational use, security teams should validate:</p>
+        <ul><li>Query syntax and compatibility with their SIEM environment.</li><li>Data-source coverage and time-range assumptions.</li><li>IOC accuracy and threat-intelligence context.</li><li>Detection logic, false-positive behaviour, and performance impact.</li><li>Evidence integrity, access controls, and sensitive-data handling.</li></ul>
+        <div class="ai-callout warning"><p><strong>Operational principle:</strong> Automation should support the analyst's reasoning—not turn unverified model output into a confirmed security finding.</p></div>
+      </section>
+
+      <section id="scope">
+        <h2>8. Current scope and future direction</h2>
+        <p>The current demonstration focuses on intelligence analysis, query and detection assistance, Splunk-based hunt execution, screenshot evidence, and PDF investigation reporting.</p>
+        <p>Further opportunities include richer IOC enrichment, improved result correlation, stronger evidence provenance, additional SIEM integrations, and validation workflows for generated detection logic.</p>
+        <p>These areas represent potential directions for future development rather than claims about capabilities that have already been implemented.</p>
+      </section>
+
+      <section id="conclusion">
+        <h2>9. Conclusion</h2>
+        <p>Effective threat hunting depends on good hypotheses, reliable telemetry, repeatable investigations, and evidence that can be reviewed.</p>
+        <p>Agentic AI can help streamline parts of this process when paired with controlled execution, clear evidence, and analyst oversight.</p>
+        <p>The goal is straightforward: reduce repetitive investigation work while helping threat hunters spend more time understanding adversary behaviour and validating security findings.</p>
+        <div class="ai-end"><p><strong>Research note</strong></p><p>This article presents a capability-level overview of an AI-assisted threat-hunting demonstration. It does not disclose proprietary implementation details and does not imply that AI-generated outputs are independently verified. Capabilities and results depend on available telemetry, integrations, configuration, and analyst review.</p><p><strong>Focus areas:</strong> agentic AI, threat hunting, threat intelligence, SIEM investigation, DFIR, and detection engineering.</p><div class="ai-actions"><a class="ai-btn" href="/research/">Explore more research →</a><a class="ai-btn" href="/">Back to portfolio home</a></div></div>
+      </section>
+    </article></div>
+    <div class="ai-footer">© 2026 Vaibhav Kamdi · Public research only · No client-confidential data</div>
+  </div></main>
+
+  <button class="ai-btn ai-top" id="back-to-top" type="button" aria-label="Back to top">↑ Top</button>
+  <script>
+    (() => {
+      "use strict";
+      const progress = document.getElementById("reading-progress");
+      const topButton = document.getElementById("back-to-top");
+      const copyButton = document.getElementById("copy-link");
+      const updateScroll = () => {
+        const root = document.documentElement;
+        const max = root.scrollHeight - root.clientHeight;
+        progress.style.width = (max > 0 ? root.scrollTop / max * 100 : 0) + "%";
+        topButton.classList.toggle("visible", root.scrollTop > 500);
+      };
+      window.addEventListener("scroll", updateScroll, { passive: true });
+      updateScroll();
+      topButton.addEventListener("click", () => window.scrollTo({top:0,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"}));
+      copyButton.addEventListener("click", async () => {
+        const original = copyButton.textContent;
+        try { await navigator.clipboard.writeText(window.location.href); copyButton.textContent = "Link copied"; }
+        catch { copyButton.textContent = "Copy unavailable"; }
+        window.setTimeout(() => { copyButton.textContent = original; }, 1800);
+      });
+    })();
+  </script>
+</body>
+</html>
