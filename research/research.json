@@ -15,5 +15,21 @@
     ],
     "description": "A repeatable, evidence-driven methodology for analysing suspicious files across Windows, Android, Linux, and macOS, from triage through behavioural validation and detection.",
     "url": "/research/malware/universal-malware-analysis-framework.html"
-  }
+}
+
+{
+  "title": "Agentic AI for Threat Hunting: From Threat Intelligence to Evidence-Driven Investigation",
+  "category": "threat-hunting",
+  "date": "2026-10-17",
+  "tags": [
+    "Agentic AI",
+    "Threat Hunting",
+    "Threat Intelligence",
+    "Splunk",
+    "SIEM",
+    "Detection Engineering"
+  ],
+  "description": "A public-safe overview of AI-assisted threat hunting, covering intelligence analysis, hunt preparation, SIEM investigation, evidence collection, and structured reporting.",
+  "url": "/research/agentic-ai-threat-hunting.html"
+}
 ]
