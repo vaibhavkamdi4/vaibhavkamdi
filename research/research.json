@@ -1,20 +1,20 @@
 [
-{
-  "title": "Zyxel Vulnerability CVE-2023-28771: A Threat to Your Network",
-  "category": "threat-intel",
-  "date": "2023-08-03",
-  "tags": [
-    "CVE-2023-28771",
-    "Zyxel",
-    "Vulnerability Research",
-    "Firewall",
-    "Network Security",
-    "Threat Hunting"
-  ],
-  "description": "A retrospective defensive analysis of CVE-2023-28771, covering firewall log interpretation, affected Zyxel product families, investigation guidance, and mitigation.",
-  "url": "/research/vulnerability/zyxel-cve-2023-28771.html"
-},
-{
+  {
+    "title": "Zyxel Vulnerability CVE-2023-28771: A Threat to Your Network",
+    "category": "threat-intel",
+    "date": "2023-08-03",
+    "tags": [
+      "CVE-2023-28771",
+      "Zyxel",
+      "Vulnerability Research",
+      "Firewall",
+      "Network Security",
+      "Threat Hunting"
+    ],
+    "description": "A retrospective defensive analysis of CVE-2023-28771, covering firewall log interpretation, affected Zyxel product families, investigation guidance, and mitigation.",
+    "path": "/research/vulnerability/zyxel-cve-2023-28771.html"
+  },
+  {
     "title": "A Universal Malware Analysis Framework: Pattern, Behaviour, Observation & Detection",
     "category": "malware",
     "date": "2026-10-10",
@@ -29,27 +29,24 @@
       "macOS"
     ],
     "description": "A repeatable, evidence-driven methodology for analysing suspicious files across Windows, Android, Linux, and macOS, from triage through behavioural validation and detection.",
-    "url": "/research/malware/universal-malware-analysis-framework.html"
-},
-
-{
-  "title": "Agentic AI for Threat Hunting: From Threat Intelligence to Evidence-Driven Investigation",
-  "category": "threat-hunting",
-  "date": "2026-10-17",
-  "tags": [
-    "Agentic AI",
-    "Threat Hunting",
-    "Threat Intelligence",
-    "Splunk",
-    "SIEM",
-    "Detection Engineering"
-  ],
-  "description": "A public-safe overview of AI-assisted threat hunting, covering intelligence analysis, hunt preparation, SIEM investigation, evidence collection, and structured reporting.",
-  "url": "/research/threat-hunting/agentic-ai-threat-hunting.html"
-},
-
-
-{
+    "path": "/research/malware/universal-malware-analysis-framework.html"
+  },
+  {
+    "title": "Agentic AI for Threat Hunting: From Threat Intelligence to Evidence-Driven Investigation",
+    "category": "threat-hunting",
+    "date": "2026-10-17",
+    "tags": [
+      "Agentic AI",
+      "Threat Hunting",
+      "Threat Intelligence",
+      "Splunk",
+      "SIEM",
+      "Detection Engineering"
+    ],
+    "description": "A public-safe overview of AI-assisted threat hunting, covering intelligence analysis, hunt preparation, SIEM investigation, evidence collection, and structured reporting.",
+    "path": "/research/threat-hunting/agentic-ai-threat-hunting.html"
+  },
+  {
     "title": "When Signatures Break: Polymorphic Malware and Behaviour-Based Detection",
     "description": "A practical research article on polymorphic and metamorphic code, layered malware detection, a synthetic YARA exercise, Sigma behavioural detection, and validation methodology.",
     "date": "2026-10-20",
