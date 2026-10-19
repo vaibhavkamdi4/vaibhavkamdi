@@ -31,5 +31,21 @@
   ],
   "description": "A public-safe overview of AI-assisted threat hunting, covering intelligence analysis, hunt preparation, SIEM investigation, evidence collection, and structured reporting.",
   "url": "/research/threat-hunting/agentic-ai-threat-hunting.html"
+},
+
+{
+  "title": "Zyxel Vulnerability CVE-2023-28771: A Threat to Your Network",
+  "category": "threat-intel",
+  "date": "2023-08-03",
+  "tags": [
+    "CVE-2023-28771",
+    "Zyxel",
+    "Vulnerability Research",
+    "Firewall",
+    "Network Security",
+    "Threat Hunting"
+  ],
+  "description": "A retrospective defensive analysis of CVE-2023-28771, covering firewall log interpretation, affected Zyxel product families, investigation guidance, and mitigation.",
+  "url": "/research/vulnerability/zyxel-cve-2023-28771.html"
 }
 ]
