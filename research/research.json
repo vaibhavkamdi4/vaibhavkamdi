@@ -46,5 +46,94 @@
   ],
   "description": "A public-safe overview of AI-assisted threat hunting, covering intelligence analysis, hunt preparation, SIEM investigation, evidence collection, and structured reporting.",
   "url": "/research/threat-hunting/agentic-ai-threat-hunting.html"
-}
+},
+
+
+{
+    "title": "When Signatures Break: Polymorphic Malware and Behaviour-Based Detection",
+    "description": "A practical research article on polymorphic and metamorphic code, layered malware detection, a synthetic YARA exercise, Sigma behavioural detection, and validation methodology.",
+    "date": "2026-10-20",
+    "category": "malware",
+    "path": "/research/malware/malware_behavior_lab_series/01-signatures-break-polymorphic-malware.html",
+    "tags": [
+      "Malware Analysis",
+      "Polymorphic Malware",
+      "YARA",
+      "Sigma",
+      "Detection Engineering",
+      "MITRE ATT&CK"
+    ]
+  },
+  {
+    "title": "Beyond Strings: PE Structure, Entropy and YARA Engineering",
+    "description": "Explore PE metadata, imports, structural indicators, feature stability, rule specificity, and false-positive control for file-based detections.",
+    "date": "2026-10-23",
+    "category": "malware",
+    "path": "/research/malware/malware_behavior_lab_series/02-beyond-strings-yara-engineering.html",
+    "tags": [
+      "YARA",
+      "Static Analysis",
+      "PE Analysis",
+      "Detection Engineering"
+    ],
+    "status": "draft"
+  },
+  {
+    "title": "From Process Tree to Attack Story: Turning Sandbox Evidence into Hypotheses",
+    "description": "Correlate process, file, registry, and network observations into a defensible investigation timeline and ATT&CK mapping.",
+    "date": "2026-10-27",
+    "category": "malware",
+    "path": "/research/malware/malware_behavior_lab_series/03-process-tree-to-attack-story.html",
+    "tags": [
+      "Dynamic Analysis",
+      "Sandbox",
+      "Threat Hunting",
+      "MITRE ATT&CK"
+    ],
+    "status": "draft"
+  },
+  {
+    "title": "Sigma Rules That Survive Tool Changes: From Event Logic to SIEM Analytics",
+    "description": "Design portable behavioural detections, document required telemetry, validate field mappings, and tune environmental noise.",
+    "date": "2026-10-30",
+    "category": "detection",
+    "path": "/research/malware/malware_behavior_lab_series/04-sigma-rules-survive-tool-changes.html",
+    "tags": [
+      "Sigma",
+      "SIEM",
+      "Detection Engineering",
+      "Windows Event Logs"
+    ],
+    "status": "draft"
+  },
+  {
+    "title": "Reconstructing a Malware Campaign: From Public Reporting to Detection Coverage",
+    "description": "A research workflow for building a sourced attack timeline, separating observations from inference, mapping ATT&CK techniques, and identifying detection opportunities.",
+    "date": "2026-11-03",
+    "category": "threat-intelligence",
+    "path": "/research/malware/malware_behavior_lab_series/05-reconstructing-a-malware-campaign.html",
+    "tags": [
+      "Threat Intelligence",
+      "Malware Analysis",
+      "MITRE ATT&CK",
+      "Campaign Analysis"
+    ],
+    "status": "draft",
+    "editorial_note": "Verify the selected campaign and all claims against primary or high-quality sources before publication."
+  },
+  {
+    "title": "Detection Is a Hypothesis Until Tested: Measuring Precision, Recall and Blind Spots",
+    "description": "Build a repeatable detection evaluation process with positive and benign test cases, false-positive review, coverage limitations, and reproducible results.",
+    "date": "2026-11-06",
+    "category": "detection",
+    "path": "/research/malware/malware_behavior_lab_series/06-detection-is-a-hypothesis-until-tested.html",
+    "tags": [
+      "Detection Validation",
+      "YARA",
+      "Sigma",
+      "False Positives",
+      "Threat Hunting"
+    ],
+    "status": "draft"
+  }
 ]
