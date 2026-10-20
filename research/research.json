@@ -132,5 +132,20 @@
       "Threat Hunting"
     ],
     "status": "draft"
-  }
+  },
+
+{
+  "title": "Building AssemblyLab: An Interactive Assembly Learning Lab for Reverse Engineering",
+  "description": "Explore AssemblyLab, a browser-based learning platform featuring assembly fundamentals, CPU registers, memory addressing, control flow, x86-64 vs ARM64, and interactive reverse-engineering challenges. Includes lessons learned from deploying the project with GitHub Pages and configuring a custom domain.",
+  "category": "Malware Research",
+  "date": "2026-10-20",
+  "url": "/research/malware/assemblylab-blog.html",
+  "tags": [
+    "Assembly Language",
+    "Reverse Engineering",
+    "Malware Analysis",
+    "GitHub Pages",
+    "Cybersecurity Education"
+  ]
+}
 ]
